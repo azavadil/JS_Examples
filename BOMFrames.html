@@ -1,0 +1,29 @@
+<!-- creates frameset with one frame across the top and two frames underneath 
+	top frame can be referenced by window.frames[0] or window.frames["topFrame"]. 
+	Would probably use top object (instead of window) top.frames[0] 
+		
+	top object always points to the top (outermost) frame (which is the browser
+	window itself. 
+	
+	Code written within a frame references that references the window object is 
+	pointing to the frame's unique instance rather than the topmost one. 
+	
+	Another window object is called parent. The parent object always points to 
+	the current frame's immediate parent frame. Parent may be equal to top (when
+	there are no frames parent is equal to top and both are equal to window)
+	
+	The topmost window will never have a value set for name unless the window was
+	opened using window.open() --> 
+
+<html> 
+  <head> 
+	 <title>Frameset Example</title> 
+  </head> 
+	<frameset rows="160,*"> 
+		<frame src="frame.htm" name="topFrame"> 
+		<frameset cols = "50%,50%"> 
+			<frame src="anotherframe.htm" name="leftFrame"> 
+			<frame src="yetanotherframe.htm" name="rightFrame"> 
+		<frameset> 
+	</frameset> 
+</html> 
