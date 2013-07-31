@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5: changes to the HTMLDocument
+		
+		outerText
+			
+		works the same way as innerText except that it includes the node on which it's called		
+		
+		
+  --> 
+		
+		
+
+  <div id="content">
+	<p>This is a <strong>paragraph</strong> with a list following it.</p> 
+	<ul> 
+		<li id="insertHere">Item 1</li> 
+		<li>Item 2</li> 
+		<li>Item 3</li> 
+	</ul> 
+  </div> 
+		
+
+  <script type="text/javascript">
+	
+	var div = document.getElementById("content"); 
+  
+	div.outerText = "Hello World!"; 
+
+	
+  </script>
+	 
+  </body> 
+</html> 
+

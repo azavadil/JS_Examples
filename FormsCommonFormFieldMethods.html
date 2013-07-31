@@ -1,0 +1,76 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Forms field: common form-field methods
+		
+		Each form field has two methods in common: focus() and blur(). The 
+		focus() method sets the browser's focus to the form field, meaning 
+		the form field becomes active and will respond to keyboad events. 
+		e.g. it's common to have the focus moved to the first field in a form
+		when the page is loaded. The can be done by listening for the load 
+		event and then calling focus on the first field
+		
+  --> 
+		
+		
+
+  <div id="content">
+	<form id="form1">
+		<textarea></textarea> 
+			
+	</form> 
+
+		
+
+			
+  <script type="text/javascript">
+	
+	EventUtil.addHandler(window, "load", function(event){
+		document.forms[0].elements[0].focus(); 
+	}); 
+	
+	/** 
+	 * Note: 
+	 * -----
+	 * This code will cause an error if the first form field is an <input> 
+	 * element with a type of "hidden" or if the field is being hidden using
+	 * display or visibility CSS property
+	 * 
+	 * HTML5 introduces an autofocus attribute for form fields that causes 
+	 * supporting browsers to automatically set the focus to that element
+	 * without the use of javascript.
+     * 
+     * <input type="text" autofocus> 	 
+	 */ 
+	 
+	
+	 //to make the former code work with autofocus
+	 
+	 EventUtil.addHandler(window, "load", function(event){
+		var element = document.forms[0].elements[0]; 
+		
+		if(element.autofocus !== true){
+			element.focus(); console.log("JS focus"); 
+		}
+	}); 
+	
+	/** 
+	 * Note: 
+	 * -----
+	 * the opposite of focus() is blur(). When blur() is called focus
+	 * is removed from the field on which it was call 
+	 */ 
+	
+	
+	
+  </script>
+	 
+  </body> 
+</html> 
+

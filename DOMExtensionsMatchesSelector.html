@@ -1,0 +1,61 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	matchesSelector()
+		
+		@param1: 	a CSS selector
+		return val:	true if the given element matches the selector, false otherwise
+		
+		available on Element type
+
+		Allows you to easily check if an element would be returned by querySelector() 
+		or querySelectorAll() when you already have the element reference. 
+		
+		As of 2011 no browser supports matchesSelector()
+	-->
+
+  <div id="myDiv"></div> 
+  
+  <script type="text/javascript">
+	
+	//not supported
+	if(document.body.matchesSelector("body.page1")){
+		console.log("match found"); 
+	}
+	
+	/** 
+	 * Note:
+	 * -----
+	 * defensive implementation since no browsers generally don't support matchesSelector() yes
+	 */ 
+	 
+	 function matchesSelector(element, selector){
+		if(element.matchesSelector){
+			return element.matchesSelector(selector);
+		} else if(element.msMatchesSelector){
+			return element.msMatchesSelector(selector);
+		} else if(element.mozMatchesSelector){
+			return element.mozMatchesSelector(selector);
+		} else if(element.webkitMatchesSelector){
+			return element.webkitMatchesSelector(selector);
+		} else { 
+			throw new Error("Not supported"); 
+		}
+	}
+	
+	if(matchesSelector(document.body, "body.page")){
+		console.log("match2 found"); 
+	}
+		
+  </script>
+  
+  
+  </body> 
+</html> 
+

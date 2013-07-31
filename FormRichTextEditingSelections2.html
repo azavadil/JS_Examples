@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5 Rich text selections
+	
+		You can determine the exact select in a rich text editor by using getSelection()
+		method of the iframe. Available on both document object and window object. 
+		
+		See book
+		
+		The methods of Selection object make use of DOM ranges. Access to DOM ranges
+		allows you to modify the contents of the rich text editor in fine-grain detail. 
+		
+		IE<=8 doesn't support DOM ranges but they do allow interaction with text via
+		proprietary selection object. 
+  --> 
+		
+		
+
+  <div id="content">
+	
+	<iframe id="richie" name="richedit" style="height: 100px; width:100px" src="F:\js\blank.htm">
+	</iframe> 
+	
+  </div> 
+
+  <script type="text/javascript" src="F:\js\EventUtil.js"></script>
+  <script type="text/javascript">
+	
+	var selection = document.getElementById("richie").getSelection(); 
+	
+	//get selected text
+	var selectedText = selection.toString(); 
+	
+	//get the range representing the selection
+	var range = selection.getRangeAt(0); 
+	
+	//highlight the selected text
+	var span = frames["richedit"].document.createElement("span"); 
+	span.style.backgroundColor = "yellow"; 
+	range.surroundContents(span); 
+	
+	//IE<=8
+	var range = frames["richedit"].document.selection.createRange(); 
+	var selectedText = range.text; 
+	
+	var range = frames["richedit"].document.selection.createRange(); 
+	range.pasteHMTL("<apan style=\"background-color:yellow\">" + range.htmlText + "</span>"); 
+	
+	 
+	
+	
+  </script>
+	 
+  </body> 
+</html> 
+

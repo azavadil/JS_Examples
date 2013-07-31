@@ -1,0 +1,66 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Text type
+		
+		Text node has the following characteristics
+		
+		node type is 3
+		nodeName is "#text"
+		nodeValue is the text contained in the node
+		parent node is an Element
+		Child nodes are not supported
+		
+		text contained in a Text node may  be accessed via either the nodeValue property 
+		or the data property (same value). 
+		
+		appendData(text): 					appends text to the end of the node
+		deleteData(offset,count):			deletes count number of characters starting at 
+											position offset
+		insertData(offset,text):			insertes text at position offset
+		replaceData(offset, count, text)	Replaces the text starting at offset through 
+											offset + count with text
+		splitText(offset): 					splits the text node into two text nodes separated
+											at position offset
+		substringData(offset, count)		Extracts a string from the text begining at position 
+											offset and continuing until offset + count
+											
+		In addition, the length property returns the number of characters in the node (same 
+		as using nodeValue.length or data.length
+		
+  -->
+	
+	
+	<div id="parent"> 
+		<div id="divToChange"></div>						<!-- no content so there is no text node--> 
+		<div id="second">[[ ]]</div> 					<!-- white character of whitespace --> 
+		<div id="hello">Hello World!</div> 		<!-- Hello World! -->
+	</div> 
+  
+  <script type="text/javascript">
+		var div = document.getElementById("parent"); 
+		var firstTextNode = div.firstChild;  									//or div.childNodes[0] 
+		console.log(firstTextNode == div.childNodes[0]);						//true 
+		console.log(firstTextNode == document.getElementById("parent")); 		//false
+		console.log(firstTextNode == document.getElementById("divToChange")); 	//false
+		firstTextNode.nodeValue = "some other message"; 						//parent div
+		
+		
+		var secondTextNode = div.childNodes[2];	
+		console.log(secondTextNode == document.getElementById("second"));   //false
+		//secondTextNode = document.getElementById("second"); 				//or div.childNodes[6]
+		secondTextNode.nodeValue = "Some <strong>other</strong> message"; 
+
+		console.log(div.childNodes);
+		
+  </script>
+	
+  </body> 
+</html> 
+

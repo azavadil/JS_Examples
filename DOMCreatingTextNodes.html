@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Creating text nodes
+		
+		text nodes can be created using document.createTextNode()
+		
+		@param1: text to be inserted into the node
+		
+		when a new text node is created its ownerDocument property is set, but it 
+		doesn't appear in the browser until it is added to a node in the document tree
+		
+  -->
+	
+	
+  
+  <script type="text/javascript">
+		
+		var elem = document.createElement("div"); 
+		elem.className = "message"; 
+		
+		var textNode = document.createTextNode("<strong>Hello</strong> world!"); 
+		elem.appendChild(textNode); 
+		document.body.appendChild(elem); 
+		
+		/**
+		 * Note: 
+		 * -----
+		 * typically elements have only one text node as a child. However it's possible to have
+		 * multiple text nodes as children
+		 */ 
+		 var elem2 = document.createElement("div"); 
+		 elem2.className = "message"; 
+		 
+		 var textNode2 = document.createTextNode("Hello hello"); 
+		 elem2.appendChild(textNode2); 
+		 
+		 var textNode3 = document.createTextNode("Bye bye"); 
+		 elem2.appendChild(textNode3); 
+		 document.body.appendChild(elem2); 
+		
+		
+  </script>
+	
+  </body> 
+</html> 
+

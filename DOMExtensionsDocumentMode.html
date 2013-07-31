@@ -1,0 +1,52 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5: changes to the HTMLDocument
+		
+		Document mode
+		
+		IE8 introduced the concept document mode. A page's document mode determines which features
+		it has access (i.e. a specific level os CSS support, a specific number of features available 
+		for scripting through Javascript, a specific way doctypes are treated). There are 4 document 
+		modes: 
+		
+		IE5:			Renders the page in quirks modes. Features from IE8 are not available
+		IE7: 			Renders the page in IE7 standards mode. Features from IE8 are not available
+		IE8: 			Renders the page in IE8 standards mode. New features in IE8 are available
+		IE9: 			Renders the page in IE9 standards mode. 
+		
+		You can force a particular document mode by using the X-UA-Compatible HTTP header or using 
+		the <meta> tag equivalent
+		
+		<meeta http-equiv="X-UA-Compatible" content="IE=IEVersion"> 
+			
+  --> 
+		
+		
+
+  <div id="content">
+	<p>This is a <strong>paragraph</strong> with a list following it.</p> 
+	<ul> 
+		<li id="insertHere">Item 1</li> 
+		<li>Item 2</li> 
+		<li>Item 3</li> 
+	</ul> 
+  </div> 
+		
+
+  <script type="text/javascript">
+  
+	var mode = document.documentMode;
+	
+	
+  </script>
+	 
+  </body> 
+</html> 
+

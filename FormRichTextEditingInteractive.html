@@ -1,0 +1,80 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5 Rich text editing
+	
+		contenteditable
+
+		The contenteditable attribute can be applied to any element on a page 
+		and instantly it makes the element editable. 
+		
+		There are three possible values for contentEditable: true,false,inherit
+		
+		The primary method of interacting with a rich text editor is through 
+		document.execCommand(). execCommand() executes named commands on the 
+		document and can be used to apply most formatting changes. 
+		@param1: 		name of the command to execute
+		@param2: 		Boolean value indicating if the browser should provide
+						a user interface for the command (always false for cross-browser)
+		@param3: 		value necessary for the command to work 
+  --> 
+		
+		
+
+  <div id="content">
+	
+	<div class="editable" id="richedit" contenteditable>Edit this</div>
+	
+	<div class="editable" id="richedit2" contenteditable>Edit this</div> 
+	
+  </div> 
+
+  <script type="text/javascript" src="F:\js\EventUtil.js"></script>
+  <script type="text/javascript">
+	
+	
+	//toggle bold text in an iframe
+	frames["richedit"].document.execCommand("bold", false, null); 
+	
+	//toggle italic
+	frames["richedit"].document.execCommand("italic", false, null); 
+	
+	//create link to www.wrox.com
+	frames["richedit"].document.execCommand("createlink", false, "http://www.wrox.com"); 
+	
+	//format as first level heading
+	frames["richedit"].document.execCommand("formatblock", false, "<h1>"); 
+	
+	/** 
+	 * Note: 
+	 * -----
+	 * can also use same methods on contenteditable
+	 */ 
+		
+	//toggle bold text in an iframe
+	document.execCommand("bold", false, null); 
+	
+	//toggle italic
+	document.execCommand("italic", false, null); 
+	
+	//create link to www.wrox.com
+	execCommand("createlink", false, "http://www.wrox.com"); 
+	
+	//format as first level heading
+	document.execCommand("formatblock", false, "<h1>"); 
+	
+	
+	 
+	
+	
+  </script>
+	 
+  </body> 
+</html> 
+

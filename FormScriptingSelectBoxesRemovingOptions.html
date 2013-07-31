@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5 Scripting select boxes: removing options
+
+		Multiple ways to remove options
+		
+		DOM
+		
+		Select box's remove() method
+		
+		Set option equal to null
+  
+  --> 
+		
+		
+
+  <div id="content">
+	<form method="post"> 
+		<select name="location" id="selLocation"> 
+			<option value="Sunnyvale, CA">Sunnyvale</option>
+			<option value="Los Angeles, CA">Los Angeles</option>
+			<option value="Mountain View, CA">Mountain View</option>
+			<option value="China"></option>
+			<option value="Australia"></option>
+	</form> 
+  </div> 
+
+  <script type="text/javascript" src="F:\js\EventUtil.js"></script>
+  <script type="text/javascript">
+	
+	
+	var selectbox = document.getElementById("selLocation"); 
+	
+	//using the DOM to remove options
+	selectbox.removeChild(selectbox.options[0]); 
+	
+	//using select box's remove() method
+	selectbox.remove(0); 
+	
+	//set option to null
+	selectbox.options[0] = null
+	
+	//clear selectbox of all options 
+	function clearSelectbox(selectbox){
+		for(var i=0, len=selectbox.options.length; i < len; i++){
+			selectbox.remove(0);
+		}
+	}
+	
+	
+  </script>
+	 
+  </body> 
+</html> 
+

@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Attr type
+	
+		nodeType is 11
+		nodeName is the attribute name
+		nodeValue is the attribute value
+		parentNode is null
+		Child nodes may be Text or EntityReference in XML
+		
+		Even though they are nodes, attributes are not considered part of the DOM document tree. 
+		Attribute nodes are rarely referenced directly. getAttribute(), setAttribute(), and 
+		removeAttribute() are used instead. 
+		
+		There are three properties on an Attr object: name, which is the attribute name (same 
+		as nodeName), value, which is the attribute value (same as nodeValue); and specified, 
+		which is a Boolean value indicating if the attribute was specified in the code. 
+		
+		New attribute nodes can be created by using document.createAttribute() and passing 
+		in the name of the attribute
+		
+		
+  -->
+
+  <div id="myDiv"></div> 
+  
+  <script type="text/javascript">
+	var attr = document.createAttribute("align"); 
+	
+	var elem = document.getElementById("myDiv"); 
+	elem.setAttributeNode(attr); 
+	console.log(elem.attributes); 
+	console.log(elem.attributes["align"].value); 
+	
+  </script>
+
+  </body> 
+</html> 
+

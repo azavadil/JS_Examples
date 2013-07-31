@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Forms field: scripting text boxes, text selection
+  
+		Both types of boxes support the select() method which selects
+		all of the text in a text box. 
+
+		It's common to select all the text in a text box when it gets 
+		focus (makes it easier for user to delete complete text)
+		
+		To accompany the select() method, there is a select event. The 
+		select event fires when the text is selected in the text box. 
+		
+		var textbox = document.forms[0].elements["textbox1"]; 
+		EventUtil.addHandler(textbox, "select", function(event){
+			console.log("Text selected"); 
+		}); 
+  --> 
+		
+		
+
+  <div id="content">
+	<form> 
+		<input id="textbox1" type="text" size="25" maxlength="50" value="initial value">
+	
+		<textarea rows="25" cols="5">intial value</textarea> 
+	</form> 
+  </div> 
+
+			
+  <script type="text/javascript">
+	 var textbox = document.forms[0].elements["textbox1"]; 
+	 textbox.select(); 
+	
+  </script>
+	 
+  </body> 
+</html> 
+

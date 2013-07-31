@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Character set properties
+  
+		charset property. By default this value is "UTF-16". It may be changed
+		using the <meta> elements or response headers or through setting the 
+		charset property directly 
+	
+		defaultCharset property: indicates what the default character set for 
+		the document should be based on default browser and system settings. The
+		values of charset and defaultCharset may be different if the document doesn't 
+		use the default character set. 
+			
+		
+  --> 
+		
+		
+		  
+
+  
+  <script type="text/javascript">
+	console.log(document.charset); 
+	document.charset = "UTF-8"; 
+	
+	
+	if(document.charset != document.defaultCharset){
+		console("custom character set being used"); 
+	}
+	
+  </script>
+  
+  
+  </body> 
+</html> 
+

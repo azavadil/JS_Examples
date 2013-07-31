@@ -1,0 +1,76 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5 constraint validation, checking validity
+	
+		You can check if any given field on the form is valid by using 
+		the checkValidity() method. This method is provided on all elements
+		and returns true if the field's value is valid or false otherwise. 
+		A blank field is considered invalid
+	
+		The validity property tells you exactly why the field is valid or 
+		invalid. 
+		
+		customError, patternMismatch, rangeOverflow, rangeUnderflow, 
+		stepMisMatch, tooLong, typeMismatch, valid(true if all other 
+		properties are false), valueMissing. 
+	
+		
+			
+		
+  --> 
+		
+		
+
+  <div id="content">
+	<form> 
+		<input type="text" name="username" value="anth" required> 
+	
+		<input type="email" name="email"> 
+		<input type="url" name="homepage"> 
+		
+		<input type="text" pattern="\d+" name="count"> 
+		<input type="submit"> 
+	</form>
+	
+  </div> 
+
+  <script type="text/javascript" src="F:\js\EventUtil.js"></script>
+  <script type="text/javascript">
+	
+	
+	//check if the first field is valid
+	if(document.forms[0].elements[0].checkValidity()){
+		console.log("vaild input"); 
+	} else { 
+		console.log("invalid input");
+	}
+	
+	//check if the entire form is valid
+	if(document.forms[0].checkValidity()){
+		console.log("vaild input"); 
+	} else { 
+		console.log("invalid input");
+	}
+	
+	if(input.validity && !input.validity.valid){
+		if(input.validity.valueMissing){
+			console.log("Please specify a value"); 
+		} else if (input.validity.typeMismatch){
+			console.log("Please enter an email address."); 
+		} else { 
+			console.log("Value is invalid"); 
+		}
+	} 
+	
+  </script>
+	 
+  </body> 
+</html> 
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5: changes to the HTMLDocument
+		
+		Custom data attributes: 
+		
+		HTML5 allows elements to be specified with nonstandard attributes prefixed 
+		with data- in order to provide information that isn't necessary to the rendering
+		or semantic value of the element. The dataset property contains and instance
+		of DOMStringMap that is a mapping of name-value pairs. The key is the attribute
+		with the "data-" stripped off. 
+
+		
+		
+  --> 
+		
+		
+		  
+
+  <div id="myDiv" data-appId="12345" data-myname="Anton" class="bd user disabled"></div> 
+  
+  <script type="text/javascript">
+	var div = document.getElementById("myDiv"); 
+	
+	//get the value
+	var appId = div.dataset.appId; 
+	var myName = div.dataset.myname; 
+	
+	//set the value
+	div.dataset.appId = 23456; 
+	div.dataset.myname = "Mike"; 
+	
+	//is there a "myname" value
+	if (div.dataset.myname){ 
+		console.log("Hello, " + div.dataset.myname); 
+	}
+ 
+	
+	
+  </script>
+	 
+  </body> 
+</html> 
+

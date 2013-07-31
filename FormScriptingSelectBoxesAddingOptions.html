@@ -1,0 +1,64 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5 Scripting select boxes: adding options
+	
+		There are several ways to create options dynamically add them to select
+		boxes. 
+	
+		Use DOM methods
+	
+		New options can also be created using the Option constructor
+		@param1: 		the text
+		@param2: 		the value
+		
+		Use the select box's add() method.
+		@param1: 		the new option to add
+		@param2:		the option before which it should be inserted
+		
+		To add an option at the end of the list, the second argument should be
+		null. For IE<=8 use undefined as the second argument to add to the end 
+		of the list. 
+		
+  --> 
+  
+		
+		
+
+  <div id="content">
+	<form method="post"> 
+		<select name="location" id="selLocation"> 
+			<option value="Sunnyvale, CA">Sunnyvale</option>
+			<option value="Los Angeles, CA">Los Angeles</option>
+			<option value="Mountain View, CA">Mountain View</option>
+			<option value="China"></option>
+			<option value="Australia"></option>
+	</form> 
+  </div> 
+
+  <script type="text/javascript" src="F:\js\EventUtil.js"></script>
+  <script type="text/javascript">
+	
+	
+	var selectbox = document.getElementById("selLocation"); 
+	//using the DOM to add options
+	var newOption = document.createElement("option"); 
+	newOption.appendChild(document.createTextNode("Option Text")); 
+	newOption.setAttribute("value", "Option value"); 
+	
+	selectbox.appendChild(newOption); 
+	
+	var newOpt2 = new Option("Opt2", "Opt2 val"); 
+	selectbox.appendChild(newOpt2); 
+	
+  </script>
+	 
+  </body> 
+</html> 
+

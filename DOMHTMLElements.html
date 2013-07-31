@@ -1,0 +1,49 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- HTML Element type 
+  
+	   id: 		 	a unique identifier for the element in the document
+	   title:  	 	additional information about the element, typically represented as a tooltip
+	   lang:	 	the language code for the contents of the element
+	   dir: 	 	the diretion of the language: "ltr" = left-to-right, "rtl" = right-to-left
+	   className: 	Equivalent to class attribute which is used to specify CSS classes on an 
+					element
+  -->
+
+ 	   
+  <div id="myDiv" class="bd" title="body text" lang="en" dir="ltr"></div>   
+  
+  <script type="text/javascript">
+	var div = document.getElementById("myDiv"); 
+	
+	console.log(div.id); 
+	console.log(div.className);
+	console.log(div.title);
+	console.log(div.lang);
+	console.log(div.dir);
+	
+	<!-- we can alos change the values programatically. Changes to id or lang will be transparent 
+		 to the user whereas changes to title will only be apparent when the mouse is moved over the 
+		 element. Changes to dir will caus the text on the page to be realigned as soon as the property 
+		 is written
+	--> 
+	
+	div.id = "someOtherId"; 
+	div.className = "ft"; 
+	div.title = "Some other text"; 
+	div.lang = "fr"; 
+	div.dir = "rtl"; 
+	
+		
+  </script>
+	
+  </body> 
+</html> 
+

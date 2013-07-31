@@ -1,0 +1,93 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- attributes Property
+		
+	   Element type is the only DOM node type that uses the attributes property. The 
+	   attributes property contains NamedNodeMap which is a "live" collection similar 
+	   to NodeList. Every attribute on an element is represented by an Attr node, each 
+	   of which is stored in the NamedNodeMap object. A NamedNodeMap object has the 
+	   following methods
+	   
+	   getNamedItem(name): 		returns the node whose nodeName property is equal to name
+	   removeNamedItem(name): 	removes the node whose nodeName property is equal to name
+	   setNamedItem(node): 		adds the node to the list, indexing it by its nodeName 
+								property 
+	   item(pos):				returns the node in the numerical position pos
+	   
+	   each node in the attributes property is a node whose nodeName is the attribute
+	   name whose nodeValue is the attribute's value. To retrieve the id attribute of an element
+	   
+  -->
+  <div id="myDiv"></div> 
+ 	   
+  <script type="text/javascript">
+	var elem = document.getElementById("myDiv"); 
+	var id = elem.attributes.getNamedItem("id").nodeValue 
+	console.log(id); 
+			
+	/**
+	 * Note: 
+	 * -----
+	 * we can also use shorthand bracket notation to get and set the attribute value
+	 */ 
+	 var id2 = elem.attributes["id"].nodeValue; 
+	 
+	 elem.attributes["id"].nodeValue = "myDivNewValue"; 
+	 
+	 /**
+	 * removeNamedItem() 
+	 * ----------------
+	 * removes the attribute with the give name
+	 */
+	 var oldAttr = elem.attributes.removeNamedItem("id"); 
+	 
+	 /**
+	 * setNamedItem() 
+	 * --------------
+	 * lets you add a new attribute to the elementp by passing an attribute node
+	 */
+	 element.attributes.setNamedItem(newAttr); 
+	 
+	 /**
+	 * Note: 
+	 * -----
+	 * generally getAttribute(), removeAttribute(), and setAttribute are preferred
+     * to using the attributes methods
+	 * 
+	 * The one area where the attributes property is useful is to iterate over the attributes
+	 * on an element. This is done most often when serializing a DOM structure into an XML or 
+	 * HTML string.
+     * 
+	 * Example function: stores name-value pairs in an array until the end and then 
+	 * concatenates the array elements with a space in between. 
+	 */
+	 
+	 function outputAttributes(element){
+		var pairs = new Array(); 
+			attrName, 
+			attrValue, 
+			i, 
+			len; 
+			
+		for (i=0, len=element.attributes.length; i < len; i++){
+			attrName = element.attributes[i].nodeName; 
+			attrValue = element.attributes[i].nodeValue; 
+			if (element.attributes[i].specified{ 
+				pairs.push(attrName + "=\"" + attrValue + "\""); 
+			}
+		}
+		return pairs.join(" "); 
+	}	
+	 
+  </script>
+	
+  </body> 
+</html> 
+

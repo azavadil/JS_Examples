@@ -1,0 +1,150 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Clipboard 
+  
+		Six events related to clipboard
+		
+		beforecopy:			fires just before the copy operation takes place
+		copy: 				fires when the copy operation takes place
+		beforecut: 			fires just before the cut operation takes place
+		cut: 				fires when the cut operation takes place
+		beforepaste:		fires just before the paste operation takes place
+		paste: 				fires when the paste operation takes place
+		
+		beforeopy, beforecut, and beforepaste give you the opportunity to change 
+		the data being sent to or retrieved from the clipboard before the actual
+		event occurs. Cancelling these events doesn't cancel the clipboard 
+		operation. You must cancel the copy, cut, or paste event to prevent 
+		the operation from occurring. 
+		
+		Clipboad data is accessible via the clipboardData object that exists
+		either on the window object or on the event object. In Firefox, Safari, 
+		and Chrome the clipboardData object is available only during clipboard
+		events to prevent unauthorized clipboard access. 
+		
+		Three methods on the clipboard object: getData(), setData(), clearData()
+		
+		getData(): 			retrieves string data from the clipboard and accepts
+		@param1: 			format of the data to retrieve. IE specifies two options
+							"text" and "URL". 
+		
+		setData():			
+		@param1: 			the data type
+		@param2: 			text to place on the clipboard
+		
+		IE<=8 honors calling setData(). To even out the differences
+		
+		var EventUtil = {
+			
+			/** 
+			 * Note: 
+		     * -----
+			 * getClipboardText(): indentify the location of the clipboardData object 
+			 *	 				   and then call getData() with a type "text".
+			 * 
+			 * setClipboardText(): locate clipboardData object, call with the approriate
+			 * 					   type for each implementation
+			 */ 
+			 
+			getClipboardText: function(event){
+				var clipboardData = (event.clipboardData || window.clipboardData); 
+				return clipboardData.getData("text"); 
+			}, 
+			
+			setClipboardTest: function(event, value){
+				if(event.clipboardData){
+					return event.clipboardData.setDate("text/plain", value); 
+				} else if (window.clipboardData){
+					return window.clipboardData.setData("text", value); 
+				}
+			}, 
+		}
+		
+		Reading text from the clipboard is helpful when you have a text box that 
+		expects only certain characters or a certain format. If a text box only 
+		allows numbers then pasted values must be inspected to ensure the value 
+		is valid
+		
+  --> 
+		
+		
+
+  <div id="content">
+	<form> 
+		<input id="textbox1" type="text" size="25" maxlength="50" value="initial value">
+	
+		<textarea rows="25" cols="5">intial value</textarea> 
+	</form> 
+  </div> 
+
+  <script type="text/javascript" src="F:\js\EventUtil.js"></script>
+  <script type="text/javascript">
+	 var txtbox = document.forms[0].elements["textbox1"]; 
+	 
+	 
+	 /** 
+	  * Note: 
+	  * -----
+	  * the character code is retrieve using EventUtil.getCharCode() for 
+	  * cross-browser compatibility. The character code is converted to a 
+	  * string using String.fromCharCode(), and the result is tested against
+	  * the regular expression /\d/, which matches all numeric characters. 
+	  * If that test fails, then the event is blocked using EventUtil.preventDefault()
+	  *
+	  *	
+	  *	EventUtil.addHandler(txtbox,"keypress", function(event){
+	  *	  event = EventUtil.getEvent(event); 
+	  *	  var target = EventUtil.getTarget(event); 
+	  *	  var charCode = EventUtil.getCharCode(event); 
+	  *
+	  *		if(!/\d/.test(String.fromCharCode(charCode))){
+	  *			EventUtil.preventDefault(event); 
+	  *		}
+	  *	});
+	  */
+	  
+	  /** 
+	  * Note: 
+	  * -----
+	  * Even though the keypress event should be fired only when a character  
+	  * key is pressed some browsers fire it for other keys as well. Firefox 
+	  * and Safari<=3.1 fire keypress for keys like up, down, Backspace, and Delete. 
+	  * This means that simply blocking all characters that aren't numbers isn't 
+	  * good enough because you'll also be blocking these useful and necessary keys. 
+	  * You can easily detect when one of these keys is pressed. In Firefox
+	  * all noncharacter keys that fire the keypress event have a character code
+	  * of 0, whereas Safari versions prior to 3 give them all a character code of 8. 
+	  */ 
+	  
+	  //generalize function
+	  EventUtil.addHandler(txtbox,"keypress", function(event){
+	  	  event = EventUtil.getEvent(event); 
+	  	  var target = EventUtil.getTarget(event); 
+	  	  var charCode = EventUtil.getCharCode(event); 
+	  
+	  	 if(!/\d/.test(String.fromCharCode(charCode)) && charCode > 9){
+	  			EventUtil.preventDefault(event); 
+	  		}
+	  });
+	  
+	  EventUtil.addHandler(txtbox, "paste", function(event){
+		event = EventUtil.getEvent(event); 
+		var text = EventUtil.getClipboardText(event); 
+		
+		if(!/\d*$/.test(text)){
+			EventUtil.preventDefault(event);
+		}
+	   }); 
+	
+  </script>
+	 
+  </body> 
+</html> 
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	CDATASection type
+	
+		nodeType is 4
+		nodeName is "#cdata-section"
+		nodeValue is the contents of the CDATA section
+		parentNode is a Document or Element
+		Child nodes are not supported
+		
+		CDATA sections are valid only in XML documents so most browsers will incorrectly parse 
+		a CDATA section
+  -->
+
+  <div id="myDiv"><![CDATA[this is some content.]]></div> 
+
+  
+  <script type="text/javascript">
+    var div = document.getElementById("myDiv"); 
+	var cdata = div.firstChild; 
+	console.log(cdata.data); 
+		 	
+		
+  </script>
+	
+  </body> 
+</html> 
+

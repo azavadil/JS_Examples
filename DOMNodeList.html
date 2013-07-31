@@ -1,0 +1,48 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Using NodeLists
+		
+		Understanding NodeList and its relatives NamedNodeMap and HTMLCollection is critical to 
+		understanding the DOM. Each of the collections is 'live'. In reality NodeList objects are 
+		queries that are run against the DOM document whenever they are accessed. 
+
+		var divs = document.getElementsByTagName("div"), 
+		i, 
+		div; 
+	
+		//causes infinite loop
+		for (i=0; i < divs.length; i++){			//divs.length is evaluated
+			div = document.createElement("div"); 	
+			document.body.appendChild(div); 		//increments the 'live' divs
+		}
+
+  -->
+
+  <div id="myDiv"></div> 
+  
+  <script type="text/javascript">
+	
+	var divs = document.getElementsByTagName("div"), 
+		i, 
+		div; 
+	
+	//causes infinite loop
+	for (i=0, len=divs.length; i < len; i++){			
+		div = document.createElement("div"); 	
+		document.body.appendChild(div); 		
+	}
+	
+	
+  </script>
+  
+  
+  </body> 
+</html> 
+

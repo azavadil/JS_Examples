@@ -1,0 +1,89 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- Getting attributes
+		
+	   Each element may have zero or more attributes. The three primary DOM methods for working
+	   with attributes: 
+	   
+	   getAttribute()
+	   setAttribute()
+	   removeAttribute()
+	   
+  -->
+
+ 	   
+  <div id="myDiv" class="bd" title="body text" lang="en" dir="ltr"></div>   
+  
+  <div id="myDiv2" my_special_attribute="hello!"></div> 
+  
+  <div id="myDiv3" align="left" my_special_attribute="hello!"></div> 
+
+  <script type="text/javascript">
+	var div = document.getElementById("myDiv"); 
+	
+	console.log(div.getAttribute("id")); 
+	
+	/** 
+	 * Note:
+	 * -----
+	 * The attribute name passed to getAttribute() is exactly the same as the 
+	 * actual attribute (e.g. we pass in class to get the value of the attribute, not className) 
+	 */ 
+		
+	console.log(div.getAttribute("class"));
+	console.log(div.getAttribute("title"));
+	console.log(div.getAttribute("lang"));
+	console.log(div.getAttribute("dir"));
+	
+	/** 
+	 * Note:
+	 * -----
+	 * getAttribute() can also retrieve the value of custom attributes 
+	 * 
+	 * According the HTML5, custom attributes should be prepended with data- 
+	 */ 
+	
+	var d2 = document.getElementById("myDiv2"); 
+	var value = d2.getAttribute("my_special_attribute"); 
+	
+	/** 
+	 * Note:
+	 * -----
+	 * All attributes on an element are also accessible as properties of the DOM element
+     * element object itself. 	 
+	 * 
+	 * Custom attributes doesn't show up as a property on the element
+	 */ 
+	var d3 = document.getElementById("myDiv3"); 
+	console.log(d3.my_special_attribute);			//undefined 
+	console.log(d3.align); 
+	
+	/** 
+	 * Note:
+	 * -----
+	 * Two types of attributes have property names that don't map directly to same 
+	 * value returned by getAttribute(). 
+	 * 
+	 * Style:    		when accessed via getAttribute() the style attribute 
+	 * 		  			contains CSS text while accessing it via a property
+     * 					returns an object	 
+	 * Event handler: 	When used on an element, the onclick attribute contains
+	 * 					javascript and that code string is returned when using
+	 * 					getAttribute(). When the onclick property is accessed 
+	 * 					however it returns a javascript function
+	 */ 
+    
+	
+		
+  </script>
+	
+  </body> 
+</html> 
+

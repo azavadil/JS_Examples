@@ -1,0 +1,98 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Dynamic styles
+	
+		CSS styles are included HTML pages using one of two elements. The <link> element is used to 
+		include CSS from an external file. The <style> element is used to specify inline styles. Like
+		dynamic scripts, dynamic sytles don't exist when the page is loaded. They are added after the 
+		page has loaded. 
+		
+		<link rel="stylesheet" type="text/css" href="styles.css"> 
+		
+		Created programatically
+		-----------------------
+		var link = document.createElement("link"); 
+		link.rel = "stylesheet"; 
+		link.type = "text/css"; 
+		link.href = "styles.css"; 
+		var head = document.getElementByTagName("head")[0]; 
+		head.appendChild(link); 
+		
+		Generalized to function
+		-----------------------
+		function loadStyles(url){
+			var link = document.createElement("link"); 
+			link.rel = "stylesheet"; 
+			link.type = "text/css"; 
+			link.href = url; 
+			var head = document.getElementByTagName("head")[0]; 
+			head.appendChild(link); 
+		}
+		
+		Example call 
+		------------
+		loadStyles("styles.css"); 
+		
+		The other way to define styles is using <style> element and including inline CSS
+		
+		<sytle type="text/css"> 
+		body {
+			background-color: red;
+		}
+		</style> 
+
+		Created programatically: works for Firefox, Safari, Chrome, Opera
+		-----------------------------------------------------------------
+		var style = document.createElement("style"); 
+		style.type = "text/css"; 
+		style.appendChild(document.createTextNode("body{background-color:red}")); 
+		var head = document.getElementByTagName("head")[0]; 
+		head.appendChild(style);
+			
+		IE workaround
+		-------------
+		var style = document.createElement("style"); 
+		style.type = "text/css"; 
+		try { 
+			style.appendChild(document.createTextNode("body{background-color:red}")); 
+		} catch(ex){
+			style.styleSheet.cssText = "body{background-color:red}"; 
+		}
+		var head = document.getElementByTagName("head")[0]; 
+		head.appendChild(style);
+		
+		Generalized to function
+		-----------------------
+		function loadStyleString(css){
+			var style = document.createElement("style"); 
+			style.type = "text/css"; 
+			try { 
+				style.appendChild(document.createTextNode(css)); 
+			} catch(ex){
+				style.styleSheet.cssText = css; 
+			}
+			var head = document.getElementByTagName("head")[0]; 
+			head.appendChild(style);
+		}
+		
+		Example usage
+		-------------
+		loadStyleString("body{background-color:red)"); 
+		
+	
+	-->
+
+  <div id="myDiv"></div> 
+  
+  
+  
+  </body> 
+</html> 
+

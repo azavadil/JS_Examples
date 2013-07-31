@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5: changes to the HTMLDocument
+		
+		readyState property has two possible values
+		loading: 		the document is loading
+		complete: 		the document is completely loaded
+		
+		compatibility mode: when in standards mode, document.compatMode is 
+							equal to CSS1compat; when in quirks mode 
+							BackCompat
+		
+		head property: 		document.head points to the <head> element of a
+							document. 
+		
+  --> 
+		
+		
+		  
+
+  <div id="myDiv" class="bd user disabled"></div> 
+  
+  <script type="text/javascript">
+	
+	if(document.readyState == "complete"){ 
+		console.log("document is ready"); 
+	}
+	
+	if(document.compatMode == "CSS1Compat"){
+		console.log("in CSS1Compat mode"); 
+	} else if (document.compatMode == "BackCompat"){
+		console.log("in BackCompat mode"); 
+	}
+		
+		
+	//retreive the head
+	var head = document.head || document.getElementsByTagName("head")[0]; 
+	
+  </script>
+  
+  
+  </body> 
+</html> 
+

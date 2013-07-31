@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- example of the write() and writeln() -->
+
+ 	   
+  <p>The current date and time is: 
+  <script type="text/javascript">
+	document.write("<strong>" + (new Date()).toString() + "</strong>");	
+  </script>
+	
+  <!-- write() and writeln() are often used to dynamically include external resources
+	   such as javascript files. When including JavaScript files you must be sure not
+	   to include the string "</script> directly. 
+
+		Avoid
+		
+		<script type="text/javascript">
+			document.write("<script type=\"text/javascript\" src=\"file.js\">" + "</script>"); 	
+		</script>
+  --> 
+  
+  <script type="text/javascript">
+			document.write("<script type=\"text/javascript\" src=\"file.js\">" + "<\/script>"); 	
+		</script>    
+
+ 
+</html> 
+

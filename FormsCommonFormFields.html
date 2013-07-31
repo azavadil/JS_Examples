@@ -1,0 +1,96 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Forms: common form-field properties 
+		
+		With the exception of the <fieldset> element, all form fields share a 
+		set of properties. Since the <input> type represents many form fields
+		some properties are used only with certain types, whereas others are 
+		used regardless of the field type. Common form-field properties
+		
+		disabled: 		boolean indicating if the form field is disabled
+		form: 			a pointer to the form that the field belongs to (read only)
+		name:			the name of the form
+		readOnly: 		boolean indicating if the field is read only 
+		tabIndex:		Indicates the tab order for the field
+		type: 			the type of the field: "checkbox", "radio"
+		value: 			the value of the field that will be submitted to the 
+						server. For file-input fields this property is read-only
+						and simply contains the file's path on the computer
+	
+		With the exception of the form property, JavaScript can change all the 
+		other properties dynamically. 
+  --> 
+		
+		
+
+  <div id="content">
+	<form id="form1">
+	
+			
+	</form> 
+
+		
+	<form method="post" id="myForm"> 
+		<ul> 
+			<li><input type="radio" name="color" value="red">Red</li> 
+			<li><input type="radio" name="color" value="green">Green</li>
+			<li><input type="radio" name="color" value="blue">Blue</li>
+		</ul> 
+	</form> 
+			
+  <script type="text/javascript">
+	var form = document.getElementById("form1"); 
+	console.log(form); 
+	
+	//change the value
+	field.value = "Another value"; 
+	
+	//check the value of form
+	console.log(field.form === form); 
+	
+	//set focus to the field
+	field.focus(); 
+	
+	//disable the field
+	field.disabled = true; 
+	
+	//change the type of field (not recommended but possible for <input>)
+	field.type = "checkbox"; 
+		
+	/** 
+	 * Note: 
+	 * -----
+	 * The ability to change form-field properties dynamically allows you to 
+	 * change the form at any time. A common prolem with web forms is users' 
+	 * tendency to click the submit button twice. A common solution to this 
+	 * problem is to disable the submit button once it's been clicked, 
+	 * which is possible by listening for the submit event and disabling 
+	 * the submit button when it occurs
+	 */ 
+	 
+	 //code to prevent multiple form submissions
+	 EventUtil.addHandler(form, "submit", function(event){
+		event = EventUtil.getEvent(event); 
+		
+		var target = EventUtil.getTarget(event); 
+		
+		//get the submit button
+		var btn = taget.elements("submit-btn"); 
+		
+		//disable it
+		btn.disabled = true;
+	}); 
+	
+	
+  </script>
+	 
+  </body> 
+</html> 
+

@@ -1,0 +1,23 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- if document.write() is called after the page has loaded, the content overwrites 
+	   the entire page-->
+
+ 	   
+  <p>This is some content that you will never see because it will be overwriten</p>  
+  <script type="text/javascript">
+	window.onload = function(){ 
+		document.write("Hello world");
+	};
+  </script>
+	
+  </body> 
+</html> 
+

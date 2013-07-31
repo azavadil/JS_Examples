@@ -1,0 +1,43 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- The Element type represents an XML or HTML element, providing information such 
+       as tag name, children, and attributes. An Element node has the following characteristics. 
+	   
+	   nodeType is 1
+	   nodeName is the elements tag name
+	   nodeValue is null
+	   parentNode may be a Document or Element
+	   ChildNodes my be Element, Text, Comment, ProcessingInstruction, CDATASections, or 
+	   entity reference
+	   
+	   An elements tag name is accessed via the nodeName property or by using the tagName
+	   property; 
+  -->
+
+ 	   
+  <div id="myDiv"></div>   
+  
+  <script type="text/javascript">
+	var div = document.getElementById("myDiv"); 
+	console.log(div.tagName); 
+	console.log(div.tagName == div.nodeName); 
+	
+	if (div.tagName == "div") { 
+		console.log("avoid, error prone to make case sensitive compares"); 
+	}
+	if(div.tagName.toLowerCase() == "div"){ 
+		console.log("preferred approach. case-insenstive compares"); 
+	}
+	
+  </script>
+	
+  </body> 
+</html> 
+

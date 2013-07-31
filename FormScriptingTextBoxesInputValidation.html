@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5 constraint validation
+  
+		HTML5 introduces the ability for browsers to validate data in forms
+		before submiting to the server. The browser itself handles the validation
+		
+		The first condition is when the form field has a required attribute. Any 
+		field marked as required must have a value in order for the form to be 
+		submitted. This attribute applies to <input>, <textarea>, and <select> 
+		fields. You can check to see if a form field is required in JavaScript
+		by using the corresponding required property. 
+		
+		HTML5 specifies several additional values for the type attribute on an 
+		<input> element. Provide additional information about the type of data
+		expected and also some default validation. The two new input types are
+		"email" and "url"
+
+		There are numeric types that expect number-based input. "number", "range", 
+		"datetime", "datetime-local", "date", "month", "week", "time". These are 
+		not well supported. 
+		
+		Each of the numeric types can specify a min attribute, a max attribute, 
+		and a step attribute. 
+		
+		Each of these attributes have a corresponding property. 
+		
+		stepUp(): 		
+		@param1: 				the number to add to the current value
+		
+		stepDown(): 			
+		@param1: 				the number to subtract fro the current value
+		
+		input.stepUp(); 
+		input.stepUp(5); 
+		input.stepDown(0); 
+		input.stepDown(10); 
+		
+  --> 
+		
+		
+
+  <div id="content">
+	<form> 
+		<input type="text" name="username" required> 
+	
+		<input type="email" name="email"> 
+		<input type="url" name="homepage"> 
+		
+		<!-- allow only multiples of 5 between 0 and 100 --> 
+		<input type="number" min="0" max="100" step="5" name="count"> 
+		
+	</form> 
+  </div> 
+
+  <script type="text/javascript" src="F:\js\EventUtil.js"></script>
+  <script type="text/javascript">
+	
+	var isUsernameRequired = document.forms[0].elements["username"].required; 
+	console.log(isUsernameRequired); 
+	
+	//see if browser supports required attribute
+	var isRequiredSupported = "required" in document.createElement("input"); 
+	console.log(isRequiredSupported); 
+	
+	//see if browser supports "email" and "url" types
+	var input = document.createElement("input"); 
+	input.type = "email"; 
+	console.log(input.type == "email"); 
+			 
+	
+  </script>
+	 
+  </body> 
+</html> 
+

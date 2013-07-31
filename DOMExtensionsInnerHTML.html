@@ -1,0 +1,92 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5: changes to the HTMLDocument
+		
+		Markup insertion
+		
+		innerHTML
+		
+		When used in write mode, innerHTML parses the given string into a DOM 
+		subtree and replaces all of the existing child nodes with it. Because the 
+		string is considered to be HTML, all tags are converted into elements in 
+		the standard way. 
+		
+		Limitations to innerHTML: 
+		
+		<script> elments cannot be executed when inserted via innerHTML. IE<=8 
+		is the only browser that allows this but only as long as the defer attribute
+		is specified and the <script> element is preceded by what Microsoft calls 
+		a scoped element. The <script> element is considered a No-scope element  
+		(which means that is has no visual representation on the page). IE strips 
+		out all No-scope elements from the begining of strings inserted via 
+		innerHTML. 
+		
+		Doesn't work 
+		------------
+		div.innerHMTL = "<script defer>console.log('hi');</script>"
+		
+		Works
+		-----
+		div.innerHMTL = _"<script defer>console.log('hi');</script>"
+		div.innerHMTL = "<div> &nbsp;</div><script defer>console.log('hi');</script>
+		div.innerHMTL = "<input type=\"hidden\"><script defer>console.log('hi');</script>"
+		
+		The first line inserts a text node (you have to go back and remove the '_'). The 
+		second line uses a div with nonbreaking space (an empty div won't work, it must have 
+		content and you may need to go back and remove the div). The third line uses 
+		a hidden input field (doesn't affect the page layout). 
+		
+		Same issues with style 
+		
+		div.innerHTML = "<style type=\"text/css\">body {background-color:red; }</style> 
+		
+		In IE<=8 <style> is another No-scope element so it must be preceded by a scoped 
+		element. 
+		
+		innerHTML is not available on all element: <col>, <colgroup>, <frameset>, <head>, 
+		 										   <html>,<style>,<table>,<tbody>,<thead>, 
+												   <tfoot>, and <tr> 
+		
+		When you're using innerHTML to insert HTML from an external source its important to 
+		sanitize the HTML before passing it to innerHTML. IE8 added the window.toStaticHTML()
+		method for this purpose. 
+		
+		
+  --> 
+		
+		
+
+  <div id="content">
+	<p>This is a <strong>paragraph</strong> with a list following it.</p> 
+	<ul> 
+		<li>Item 1</li> 
+		<li>Item 2</li> 
+		<li>Item 3</li> 
+	</ul> 
+  </div> 
+		
+
+  <script type="text/javascript">
+	var div = document.getElementById("content"); 
+	
+	/**
+	 * Note: 
+	 * -----
+	 * the innerHTML for div would be everything from <p> This ... </ul> 
+	 */ 
+ 
+	div.innerHTML = "Hello & welcome <b>\"reader\"!</b>"; 
+	
+	
+  </script>
+	 
+  </body> 
+</html> 
+

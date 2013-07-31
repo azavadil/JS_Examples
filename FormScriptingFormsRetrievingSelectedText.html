@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Forms field: scripting text boxes, retrieving text
+  
+		Text box properties selectionStart and selectionEnd. 
+		These properties contain zero-based numbers indicating the text-section
+		boundries. To get the selected text. 
+  --> 
+		
+		
+
+  <div id="content">
+	<form> 
+		<input id="textbox1" type="text" size="25" maxlength="50" value="initial value">
+	
+		<textarea rows="25" cols="5">intial value</textarea> 
+	</form> 
+  </div> 
+
+			
+  <script type="text/javascript">
+	 var tbox = document.forms[0].elements["textbox1"]; 
+	 
+	 console.log(tbox); 
+	 
+	 function getSelectedText(textbox){ 
+		return textbox.value.substring(textbox.selectionStart, textbox.selectionEnd); 
+	}
+
+	/** 
+	 * Note: 
+	 * -----
+	 * Older versions of IE have a document.selection object that contains 
+	 * text-selection information for the entire document (i.e. you can't be 
+	 * sure where the selected text is on the page). However, used in conjunction
+	 * with the select event, you can be assured the selection is inside the text 
+	 * box that fired the event
+	 */ 
+	 function getSelectedText(textbox){ 
+		if(typeof textbox.selectionStart == "number"){
+			return textbox.value.substring(textbox.selectionStart, textbox.selectionEnd);
+		} else if (document.selection){
+			return document.selection.createRange().text; 
+		}
+	}
+	 
+	 
+  </script>
+	 
+  </body> 
+</html> 
+

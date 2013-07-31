@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5: changes to the HTMLDocument
+		
+		Scrolling
+		
+		scrollIntoViewIfNeeded(alignCenter): 	scrolls the browser window or container element so that 
+												the element is visible in the viewport
+		
+		scrollByLines(lineCount)				scrolls the contents of the element by the height of the 
+												given number of text lines
+			
+		scrollByPage(pageCount)					scrolls the contents of the element by the height of the page
+		
+  --> 
+		
+		
+
+  <div id="content">
+	<p>This is a <strong>paragraph</strong> with a list following it.</p> 
+	<ul> 
+		<li id="insertHere">Item 1</li> 
+		<li>Item 2</li> 
+		<li>Item 3</li> 
+	</ul> 
+  </div> 
+		
+
+  <script type="text/javascript">
+	
+	//scroll body by 5 lines
+	document.body.scrollByLines(5); 
+	
+	//make sure this element is visible
+	document.images[0].scrollIntoViewIfNeeded(); 
+	
+	//scroll the body back up one page
+	document.body.scrollByPages(-1); 
+	
+  </script>
+	 
+  </body> 
+</html> 
+

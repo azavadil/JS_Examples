@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)file:///F:/js/html2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5 constraint validation, input patterns
+	
+		The pattern attribute was introduced for text fields in HTML5. This
+		attribute specifies a regular expression with which the input value 
+		must match. For example, to allow only numbers in a text field, the 
+		following code applies the constraint
+		
+		<input type="text" pattern="\d+" name="count"> 
+		
+		Note that ^ and $ are assumed at the begining and end of the pattern. 
+		That means the input must exactly match the pattern from begining to 
+		end. 
+		
+		Specifying a pattern does not prevent the user from entering invalid
+		text. The pattern is applied to the value and the browser than knows
+		if the value is valid or not. You can read the pattern by accessing
+		the pattern property
+		
+	
+				
+		
+  --> 
+		
+		
+
+  <div id="content">
+	<form> 
+		<input type="text" name="username" required=""> 
+	
+		<input type="email" name="email"> 
+		<input type="url" name="homepage"> 
+		
+		<input type="text" pattern="\d+" name="count"> 
+		
+	</form> 
+  </div> 
+
+  <script type="text/javascript" src="./FormScriptingTextBoxesInputValidation2_files/EventUtil.js"></script>
+  <script type="text/javascript">
+	
+	var isUsernameRequired = document.forms[0].elements["username"].required; 
+	console.log(isUsernameRequired); 
+	
+	//see if browser supports required attribute
+	var isRequiredSupported = "required" in document.createElement("input"); 
+	console.log(isRequiredSupported); 
+	
+	//see if browser supports "email" and "url" types
+	var input = document.createElement("input"); 
+	input.type = "email"; 
+	console.log(input.type == "email"); 
+	
+	//access pattern property
+	var pattern = document.forms[0].elements["count"].pattern; 
+
+	//test for browser support
+	var isPatternSupported = "pattern" in document.createElement("input"); 
+	
+  </script>
+	 
+   
+ 
+
+</body></html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Input filtering 
+  
+		Certain types of input require specific characters (e.g. phone number must be
+		numeric). The keypress event is responsible for inserting characters into a
+		text box. Characters can be blocked by preventing this event's default
+		behavoir. 
+		
+		For example the following code blocks all key presses
+		
+		EventUtil.addHandler(txtbox,"keypress", function(event){
+			event = EventUtil.getEvent(event); 
+			EventUtil.preventDefault(event); 
+		}); 
+
+		
+  --> 
+		
+		
+
+  <div id="content">
+	<form> 
+		<input id="textbox1" type="text" size="25" maxlength="50" value="initial value">
+	
+		<textarea rows="25" cols="5">intial value</textarea> 
+	</form> 
+  </div> 
+
+  <script type="text/javascript" src="F:\js\EventUtil.js"></script>
+  <script type="text/javascript">
+	 var txtbox = document.forms[0].elements["textbox1"]; 
+	 
+	 
+	 /** 
+	  * Note: 
+	  * -----
+	  * the character code is retrieve using EventUtil.getCharCode() for 
+	  * cross-browser compatibility. The character code is converted to a 
+	  * string using String.fromCharCode(), and the result is tested against
+	  * the regular expression /\d/, which matches all numeric characters. 
+	  * If that test fails, then the event is blocked using EventUtil.preventDefault()
+	  *
+	  *	
+	  *	EventUtil.addHandler(txtbox,"keypress", function(event){
+	  *	  event = EventUtil.getEvent(event); 
+	  *	  var target = EventUtil.getTarget(event); 
+	  *	  var charCode = EventUtil.getCharCode(event); 
+	  *
+	  *		if(!/\d/.test(String.fromCharCode(charCode))){
+	  *			EventUtil.preventDefault(event); 
+	  *		}
+	  *	});
+	  */
+	  
+	  /** 
+	  * Note: 
+	  * -----
+	  * Even though the keypress event should be fired only when a character  
+	  * key is pressed some browsers fire it for other keys as well. Firefox 
+	  * and Safari<=3.1 fire keypress for keys like up, down, Backspace, and Delete. 
+	  * This means that simply blocking all characters that aren't numbers isn't 
+	  * good enough because you'll also be blocking these useful and necessary keys. 
+	  * You can easily detect when one of these keys is pressed. In Firefox
+	  * all noncharacter keys that fire the keypress event have a character code
+	  * of 0, whereas Safari versions prior to 3 give them all a character code of 8. 
+	  * 
+	  * In all browsers other than IE we also have to check that the key isn't ctrl 
+	  * (otherwise the code would disallow copy and paste)
+	  */ 
+	  
+	  //generalize function
+	  EventUtil.addHandler(txtbox,"keypress", function(event){
+	  	  event = EventUtil.getEvent(event); 
+	  	  var target = EventUtil.getTarget(event); 
+	  	  var charCode = EventUtil.getCharCode(event); 
+	  
+	  	 if(!/\d/.test(String.fromCharCode(charCode)) && charCode > 9 && !event.ctrlKey){
+	  			EventUtil.preventDefault(event); 
+	  		}
+	  });
+	
+	
+  </script>
+	 
+  </body> 
+</html> 
+

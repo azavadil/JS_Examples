@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5: changes to the HTMLDocument
+		
+		Markup insertion
+		
+		When using innerHTML, outerHTML, and insertAdjacentHTML, it's best to manually remove all event
+		handlers and javascript object properties on elements that are going to be removed. 
+		
+		
+		
+		
+	
+		
+  --> 
+		
+		
+
+  <div id="content">
+	<p>This is a <strong>paragraph</strong> with a list following it.</p> 
+	<ul> 
+		<li id="insertHere">Item 1</li> 
+		<li>Item 2</li> 
+		<li>Item 3</li> 
+	</ul> 
+  </div> 
+		
+
+  <script type="text/javascript">
+  
+	/**
+	 * Note: 
+	 * -----
+	 * Using these properties has an advantage because an HTML parser is created whenever a value 
+	 * is set to innerHTML. However there's overhead related to the creation of the parser so it's 
+	 * best to build a cumulative HMTL string and make a single call the innerHTML/outerHTML. 
+	 * 
+	 * avoid
+	 * -----
+	 * for (var i=0, len=value.length; i<len; i++){
+	 *	ul.innerHTML += "<li>" + values[i] + </li>"; 
+	 */  
+	 
+	 var itemsHTML = ""; 
+	 for (var i=0, len=value.length; i<len; i++){
+	 	itemsHMTL += "<li>" + values[i] + </li>";
+	 }
+	 ul.innerHTML = items.HTML; 
+	
+	
+  </script>
+	 
+  </body> 
+</html> 
+

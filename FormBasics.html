@@ -1,0 +1,73 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Forms
+		
+		Web forms are represented by the <form> element in HTML and by the HTMLFormElement type in 
+		Javascript. The HTMLFormElement type inherits from HTMLElement and therefore has all of the same
+		default properties as other HTML element. However HTMLFormElement also has the additional 
+		properties and methods. 
+		
+		acceptCharset: 		the character sets that the server can process; equivalent to the HTML a
+							accept-charset attribute
+		action: 			the URL to send the request to; equivalent to the HTML action attribute
+		elements:			an HTMLCollection of all controls in the form
+		enctype:			the encoding type of the request; equivalent to the HTML enctype
+		length: 			the number of controls in the form 
+		method: 			the type of HTTP request to send, typically "get" or "post", equivalent
+							to the HTML method attribute
+		name: 				the name of the form; equivalent to the HTML name attribute
+		reset(): 			Resets all form fields to their default values
+		submit():			submits the form
+		target:				the name of the window to use for sending the request and recieving the response, 
+							equivalent to the HTML target attribute
+					
+		references to <form> elements can be retrieved in a number of different ways. 
+		The most common way is to treat them as any other elements and assign the id attributed, 
+		allowing the use of getElementById()
+		
+		All forms on the page can also be retrieve from document.forms collection. 
+		Each form can be accessed in this collection by numeric index and by name. 
+		
+		
+  --> 
+		
+		
+
+  <div id="content">
+	<form id="form1">
+	
+	</form> 
+	
+	<form id="form2">
+	
+	</form> 
+
+	<p>This is a <strong>paragraph</strong> with a list following it.</p> 
+	<ul> 
+		<li id="insertHere">Item 1</li> 
+		<li>Item 2</li> 
+		<li>Item 3</li> 
+	</ul> 
+  </div> 
+		
+
+  <script type="text/javascript">
+	var form = document.getElementById("form1"); 
+	console.log(form); 
+	
+	var firstForm = document.forms[0];
+	console.log(firstForm); 
+	var myform = document.forms["form2"]; 
+	console.log(myform); 
+  </script>
+	 
+  </body> 
+</html> 
+

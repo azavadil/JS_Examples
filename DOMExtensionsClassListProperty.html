@@ -1,0 +1,102 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5
+  
+		classList property
+		
+		in class name manipulation the className property is used to add, remove, and
+		replace class names. Since className contains a single string, it's necessary 
+		to set its value every time a change needs to take place. 
+		
+		Traditional approach
+		--------------------		
+		//remove the user class
+		
+		var div = document.getElementById("myDiv"); 
+	
+		//first get list of class names
+		var classNames = div.className.split(/\s+/); 
+	
+		//find the class name to remove
+		var pos = -1, i, len; 
+		for (i=0, len=classNames.length-1; i < len; i++){
+			if(classNames[i] == "user"){
+				pos = 1; 
+			}
+			break;
+		}
+	
+		//remove the class name
+		classNames.splice(i, 1); 
+	
+		//set back the class names
+		div.className = classNames.join(" "); 
+
+		
+		
+  -->
+
+  <div id="myDiv" class="bd user disabled"></div> 
+  
+  <script type="text/javascript">
+	
+	/**
+	 * Note: 
+	 * -----
+	 * HTML introduces a way to manipulate class names in a better way 
+	 * through the classList property for all element. The classList property
+	 * is an instance of a new type of collection named DOMTokenList. As with other
+	 * DOM collection, DOMTokenList has a length property to indicate how may other 
+	 * items it contains and individual items may be retrieved via the item() 
+	 * method or using bracket notation
+	 *
+	 * add(value): 		adds the given string value to the list. If the value already 
+	 * 					exists it will not be added
+	 * contains(value): indicates if the given value exists in the list
+	 * remove(value):	removes the given string value from the list
+	 * toggle(value): 	if the value already exists in the list, it is removed. 
+	 * 					if the value doesn't exist, then it's added. 
+	 *
+	 * Using this code ensures that the rest of the class names will be 
+	 * uneffected. 
+	 */ 
+	 
+	 var div = document.getElementById("myDiv");
+	 //replaces block of code above
+	 div.classList.remove("user")
+	 
+	 
+	 //remove the "disabled" class
+	 div.classList.remove("disabled"); 
+	 
+	 //add the "current" class
+	 div.classList.add("current"); 
+	 
+	 //toggle the "user" class
+	 div.classList.toggle("user"); 
+	 
+	 //figure out what's on the element now
+	 if(div.classList.contains("bd") && !div.classList.contains("disabled")){
+		console.log("contains bd and not disabled"); 
+	}
+	
+	//iterate over the class names
+	for (var i =0, len=div.classList.length; i < len; i++){
+		console.log(div.classList[i]); 
+	}
+		
+	console.log(div); 
+		
+  </script>
+  
+  
+  </body> 
+</html> 
+

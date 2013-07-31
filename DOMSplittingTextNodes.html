@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Splitting text nodes
+		
+		splitText() does the opposite of normalize(). Splits a text node into two 
+		text nodes. 
+		@param1: 	offset to split the text at
+		return val:	the new text node
+		
+		Use case: 		DOM parsing, extracting data from text nodes
+						
+  -->
+	
+	
+  
+  <script type="text/javascript">
+		
+		 var elem = document.createElement("div"); 
+		 elem.className = "message"; 
+		 
+		 var textNode = document.createTextNode("Hello hello"); 
+		 elem.appendChild(textNode); 
+		 
+		 document.body.appendChild(elem);
+	     
+		 var newNode = elem.firstChild.splitText(5); 
+		 console.log(newNode.nodeValue); 
+		 
+		 	
+		
+  </script>
+	
+  </body> 
+</html> 
+

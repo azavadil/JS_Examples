@@ -1,0 +1,48 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	DocumentFragment type
+	
+		nodeType is 11
+		nodeName is "#document-fragment" 
+		nodeValue is null
+		parentNode is null
+		Child nodes may be Element, ProcessingInstructions, Comment, Text, CDATASection, or EntityReference
+		
+		A document fragment can't be added to a document directly. Instead it acts as an accumulator
+		for other nodes that may need to be added to the document. Document fragments are created using
+		the document.createDocumentFragment() method. 
+		
+		Document fragments inherit all methods from Node and are typically used to perform DOM 
+		manipulations that are to be applied to a document. If a node from thhe document is added 
+		to a document fragment, that node is removed from the document tree and won't be rendered by 
+		the browser. New nodes that are added to the document fragment are also not part of the 
+		document tree. Contents of a document fragment can be added to the document via appendChild()
+		insertBefore(). When a document fragment is passed as the argument all of the document 
+		fragments child nodes are added in that spot (the fragment itself is never added)
+  -->
+
+  <ul id="myList"></ul> 
+  
+  <script type="text/javascript">
+	var fragment = document.createDocumentFragment(); 
+	var ul = document.getElementById("myList"); 
+	var li = null; 
+	
+	for (var i=0; i < 3; i++){
+		li = document.createElement("li"); 
+		li.appendChild(document.createTextNode("Item " + (i+1))); 
+		fragment.appendChild(li); 
+	}
+	ul.appendChild(fragment); 
+  </script>
+
+  </body> 
+</html> 
+

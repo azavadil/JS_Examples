@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- Setting attributes
+		
+	   Each element may have zero or more attributes. The three primary DOM methods for working
+	   with attributes: 
+	   
+	   setAttribute()
+	   @param1: 	the name of the attribute to set
+	   @param2: 	the value to set it to
+	   
+	   if the attribute already exists, setAttribute() replaces its value with the one specified. 
+	   if the attribute doesn't exist, setAttribute() creates it an sets its value
+	   
+	   removeAttribute()
+	   
+	   removes the attribute from the element altogether
+  -->
+  <div id="myDiv"></div> 
+ 	   
+  <script type="text/javascript">
+	var div = document.getElementById("myDiv"); 
+	div.setAttribute("id", "someOtherId"); 
+	div.setAttribute("class", "ft"); 
+	div.setAttribute("title", "Some other text"); 
+	div.setAttribute("dir", "rtl"); 
+	
+	/** 
+	 * Note: 
+	 * -----
+	 * because attributes are properties, assigning directly to the property can set the 
+	 * attribute value
+	 * 
+	 * Adding a custom property to a DOM element doesn't make it an attribute of the element
+	 */ 
+	 div.id = "someOtherId"; 
+	 div.align = "left"; 
+	 
+	 div.mycolor = "red"; 
+	 console.log(div.getAttribute("mycolor")); //null
+	 
+	 /** 
+	 * Note: 
+	 * -----
+	 * completely removes the attribute from the element. Infrequently used but can 
+	 * be useful for specifying which attributes to include when serializing a DOM element
+	 */ 
+	
+	 div.removeAttribute("class"); 
+		
+  </script>
+  
+	
+  </body> 
+</html> 
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Forms
+		
+		Forms are submitted when a user interacts with a submit button or an image button. 
+		Submit buttons are defined using either the <input> element or the <button> element 
+		with a type attribute of "submit", and image buttons are defined using the <input> 
+		element with a type attribute of "image". 
+		
+  --> 
+		
+		
+
+  <div id="content">
+	<form id="form1">
+	
+		<!--
+			if any one of these types of buttons is within a form that has a submit
+			button, pressing Enter on the keyboard when a form control has focus will
+			also submit the form (exception: textarea, within which Enter creates '/n')
+			
+			When a form is submitted in this manner, the submit event fires right before the 
+			request is sent to the server. This gives you the opportunity to validate the form 
+			data and decide wether to allow the form submission to occur (see <script>). 
+		-->
+	
+		<!-- generic submit button --> 
+		<input type="submit" value="Submit Form"> 
+	
+		<!-- custom submit button --> 
+		<button type="submit">Submit form</button> 
+	
+		<!-- image button --> 
+		<input type="image" scr="keepon.jpg"> 
+	
+	</form> 
+
+	<p>This is a <strong>paragraph</strong> with a list following it.</p> 
+	<ul> 
+		<li id="insertHere">Item 1</li> 
+		<li>Item 2</li> 
+		<li>Item 3</li> 
+	</ul> 
+  </div> 
+		
+
+  <script type="text/javascript">
+	var form = document.getElementById("form1"); 
+	console.log(form); 
+	
+	
+	EventUtil.addHandler(form, "submit", function(event){
+		
+		//get event object
+		event = EventUtil.getEvent(event); 
+		
+		//do validation
+		
+		//prevent form submission
+		EventUtil.preventDefault(event); 
+	}); 
+	
+	/** 
+	 * Note: 
+	 * -----
+	 * possible to submit a form programtically. 
+	 * 
+	 * When the form is submitted via submit(), the submit event does not fire, 
+	 * so be sure to do data validation before calling the method
+	 */ 
+	 var form = document.getElementById("myForm"); 
+	 
+	 //submit the form
+	 form.submit(); 
+	 
+	/** 
+	 * Note: 
+	 * -----
+	 * One of the biggest issues with form submission is the possibility of 
+	 * submitting the form twice. There are essentially two ways to solve this 
+	 * problem: disable the submit button once the form is submitted or 
+	 * use the onsubmit event handler to cancel any further form submissions
+	 */ 
+	
+	
+  </script>
+	 
+  </body> 
+</html> 
+

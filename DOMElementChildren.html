@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Element children
+  
+		Elements may have any number of children and descendants since elements may be children 
+		of elements. The childNodes property contains all the immediate children of the element 
+		which may be elements, text nodes, comments, and processing instructions. 
+		
+		There is a significant difference between browsers regarding the identification of nodes. 
+		
+		IE8: 	<ul> has three child nodes (one for each <li>)
+		Other: 	<ul> has seven elements (3 <li> and 4 text nodes)
+		
+		getElementsByTagName()
+		----------------------
+		get child nodes and other descendents with a particular tag name. Works exactly the 
+		same as the document version except the search is rooted on the element so only descendents 
+		of that element are returned
+  -->
+  
+  
+  <ul id="myList"> 
+	<li>Item 1</li>
+	<li>Item 2</li>
+	<li>Item 3</li>
+  </ul> 
+  
+  <script type="text/javascript">
+		var ul = document.getElementById("myList"); 
+		
+		for (var i = 0, len=ul.childNodes.length; i < len; i++){
+			if(ul.childNodes[i].nodeType == 1){
+				//do processing
+			}
+		}
+		
+		/** 
+		 * Note: 
+		 * -----
+		 * retreives all the <li> elements. Works because the <ul> element only has one 
+		 * level of descendents
+		 */
+		var items = ul.getElementsByTagName("li"); 
+		console.log(items); 
+		
+		
+  </script>
+	
+  </body> 
+</html> 
+

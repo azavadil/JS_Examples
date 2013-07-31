@@ -1,0 +1,32 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>Example HTML page</title> 
+	
+  </head> 
+  <body> 
+
+  <fieldset> 
+	<legend> Which color do you prefer?</legend> 
+	<ul> 
+		<li><input type = "radio" value = "red" name="color" id="colorRed"> 
+			<label for="colorRed">Red</label></li> 
+		<li><input type = "radio" value = "green" name = "color" id="colorGreen"> 
+			<label for="colorGreen">Green</label></li> 
+		<li><input type="radio" value="blue" name="color" id="colorBlue"> 
+			<label for="colorBlue">Blue</label></li> 
+	</ul> 
+  </fieldset>   
+  </body> 
+  
+  <!-- the radio buttons all have a name attribute of "color" even though their IDs are
+       different. The IDs allow the <label> elements to be applied to the radio buttons, 
+	   and the name attribute esures that one of the three values will be sent over to 
+	   the server. getElementsByName() returns an HTMLCollection --> 
+  
+  <script type="text/javascript">
+	var radios = document.getElementsByName("color"); 
+	console.log(radios); 
+  </script> 
+</html> 
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Forms field: common form-field events
+		
+		all form fields support three events in addition to mouse, 
+		keyboard, mutation, and HTML events
+		
+		blur: 		fires when field first loses focus
+		change: 	fires when the field loses focus and the value has changed
+					for <input) and <textarea> elements. Also fires when the selected
+					option changes for <select> element. 
+		focus: 		fires when the field gets focus
+		
+		Both the blur and the focus events fire because of users manually changing
+		the field's focus, as well as by calling the blur() and focus() methods. 
+		These two events work the same way for all form fields. The change event
+		fires at different times for different controls. For <input> and <textarea> 
+		element, the change evennt fires when the field loses focus and the value
+		has changed since the time the control got focus. For <select> elements 
+		the change event fires whenever the user changes the selected option.
+		
+		The focus and blur events are typically used to change the user interface 
+		in some way, to provide either visual cues or additional functionality. 
+		The change event is typically used to validate data that was entered into 
+		a field. For example, a text box that only expects numbers. the focus event
+		may be used to change the background color to indicate that the field has 
+		focus. The blur event can be used to remove the background color, and the 
+		change event can change the background color to red if non-numeric characters
+		are entered. 
+  --> 
+		
+		
+
+  <div id="content">
+	<form id="form1">
+		<textarea></textarea> 
+			
+	</form> 
+
+		
+
+			
+  <script type="text/javascript">
+	
+		
+	EventUtil.addHandler(textbox, "focus", function(event){
+		event = EventUtil.getEvent(event); 
+		var target = EventUtil.getTarget(event); 
+		
+		if(target.style.backgroundColor != "red"){
+			target.style.backgroundColor = "yellow"; 
+		}
+	}); 
+	
+	EventUtil.addHandler(textbox, "blur", function(event){
+		event = EventUtil.getEvent(event); 
+		var target = EventUtil.getTarget(event); 
+		
+		if(/[^\d]/.test(target.value)){
+			target.style.backgroundColor = "red"; 
+		} else { 
+			target.style.backgroundColor = "";
+		}
+	}); 
+
+	EventUtil.addHandler(textbox, "change", function(event){
+		event = EventUtil.getEvent(event); 
+		var target = EventUtil.getTarget(event); 
+		
+		if(/[^\d]/.test(target.value)){
+			target.style.backgroundColor = "red"; 
+		} else { 
+			target.style.backgroundColor = "";
+		}
+	}); 
+
+
+	 
+	
+  </script>
+	 
+  </body> 
+</html> 
+

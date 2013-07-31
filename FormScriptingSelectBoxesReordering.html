@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5 Scripting select boxes: moving and reordering options
+	
+		Using the DOM you can move an option from one select box to 
+		another using appendChild(). If you passs an element that is 
+		already in the document into this method the element is removed
+		from its parent and put into the position specified. 
+		
+		Reordering is similar. DOM methods work best. To move an option to 
+		a particular location in the select box, the insertBefore() method
+		is most appropriate (appendChild() can be used to move to last position)
+  
+  --> 
+		
+		
+
+  <div id="content">
+	<form method="post"> 
+		<select name="location" id="selLocation"> 
+			<option value="Sunnyvale, CA">Sunnyvale</option>
+			<option value="Los Angeles, CA">Los Angeles</option>
+			<option value="Mountain View, CA">Mountain View</option>
+			<option value="China"></option>
+			<option value="Australia"></option>
+		</select>
+
+		<select name="location" id="sel2"> 
+			<option value="Durham, NC">Durham</option>
+			<option value="Rahleigh,NC">Rahleigh</option>
+			<option value="Chapel Hill, NC">Chapel Hill</option>
+>
+		</select>
+		
+	</form> 
+  </div> 
+
+  <script type="text/javascript" src="F:\js\EventUtil.js"></script>
+  <script type="text/javascript">
+	
+	
+	var selectbox = document.getElementById("selLocation"); 
+	var box2 = document.getElementById("sel2"); 
+	
+	//move an option from selectbox to box2
+	box2.appendChild(selectbox.options[0]);
+	
+	//move an option up 1
+	var optionToMove = box2.options[1]; 
+	box2.insertBefore(optionToMove, box2.options[optionToMove.index-1]); 
+	
+	//move an option down 1
+	var optionToMove2 = selectbox.options[1]; 
+	selectbox.insertBefore(optionToMove2, selectbox.options[optionToMove2.index-1]); 
+
+	
+	
+	
+  </script>
+	 
+  </body> 
+</html> 
+

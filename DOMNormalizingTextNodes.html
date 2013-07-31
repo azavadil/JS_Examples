@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Normalizing text nodes
+		
+		Sibling text nodes can be confusing since there is no simple string that 
+		can't be represented as a single text node. It is not uncommon to come across
+		sibling text nodes so there is method to join sibling text nodes together
+		
+		normalize(): 	called on a parent of two or more text nodes. Merges the two 	
+						text nodes into a single node
+						
+  -->
+	
+	
+  
+  <script type="text/javascript">
+		
+		 var elem = document.createElement("div"); 
+		 elem.className = "message"; 
+		 
+		 var textNode = document.createTextNode("Hello hello"); 
+		 elem.appendChild(textNode); 
+		 
+		 var textNode2 = document.createTextNode("Bye bye"); 
+		 elem.appendChild(textNode2); 
+		 document.body.appendChild(elem);
+
+		console.log(elem.childNodes.length); 
+		
+		elem.normalize()
+		console.log(elem.childNodes.length); 
+		console.log(elem.firstChild.nodeValue); 
+		
+		
+  </script>
+	
+  </body> 
+</html> 
+

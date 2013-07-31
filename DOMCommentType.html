@@ -1,0 +1,40 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Comment type
+		
+		Comment node has the following characteristics 
+		
+		nodeType is 8
+		nodeName is "#comment"
+		nodeValue is the content of the comment
+		parentNode is a Document or Element
+		Child nodes are not supported
+		
+		Comment type inherits from the same base as the Text type so it has all of the 
+		same string-manipulation methods except splitText(). A comment node can be accessed 
+		as a child node from it's parent
+						
+  -->
+
+  <div id="myDiv"><!-- A comment --> 
+  
+
+  
+  <script type="text/javascript">
+    var div = document.getElementById("myDiv"); 
+	var comment = div.firstChild; 
+	console.log(comment.data); 
+		 	
+		
+  </script>
+	
+  </body> 
+</html> 
+

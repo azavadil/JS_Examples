@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)file:///F:/js/html2.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5 Rich text editing
+	
+		The basic technique is to embed an iframe containing a blank HTML file in 
+		the page. 
+		
+		source of iframe
+		
+		<!DOCTYPE html> 
+		<html>
+		  <head> 
+		    <title>Blank page for rich text editing</title> 
+		  </head>
+		  <body> 
+		  </body> 
+		</html>
+		
+		This page is loaded inside an iframe as any other page would be. To allow
+		editing, the designMode is set to "on" (only after document is loaded). 
+		
+  --> 
+		
+		
+
+  <div id="content">
+	
+	<iframe name="richedit" style="height: 100px; width:100px" src="./FormsRichTextEditingiFrame_files/blank.htm">
+	</iframe> 
+	
+  </div> 
+
+  <script type="text/javascript" src="./FormsRichTextEditingiFrame_files/EventUtil.js"></script>
+  <script type="text/javascript">
+	
+	
+	EventUtil.addHandler(window, "load", function(){
+		frames["richedit"].document.designMode = "on"; 
+	}); 
+	
+	
+  </script>
+	 
+   
+ 
+
+</body></html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Dynamic scripts 2
+	
+		Dynamic scripts are those that don't exist when the page is loaded but are included later by using
+		the DOM. As with the HTML element, there are two ways to do this. Pulling in an external file or 
+		inserting text directly
+		
+		The other way to specify JavaScript code is inline
+		
+		<script type="text/javascript"> 
+			function sayHi(){
+				console.log("Hi"); 
+			}
+		</script> 
+		
+		It would be logical to expect this to work. 
+		
+		var script = document.createElement("script"); 
+		script.type = "text/javascript"; 
+		script.appendChild(document.createTextNode("function sayHi(){console.log('hi');}")); 
+		document.body.appendChild(script);
+		
+		this works for Firefox, Safari, Chrome & Opera
+			
+		for IE you have to use this
+		
+		var script = document.createElement("script"); 
+		script.type = "text/javascript"; 
+		script.text = "function sayHi(){console.log('hi');}"; 
+		document.body.appendChild(script);
+
+	-->
+
+  <div id="myDiv"></div> 
+  
+  <script type="text/javascript">
+		
+	/** 
+	 * Note: 
+	 * -----
+	 * Safer method to cover early version of Safari
+	 */ 
+	 
+	var script = document.createElement("script"); 
+	script.type = "text/javascript"; 
+	var code = "function sayHi(){console.log('hi');}"; 
+	try { 
+		script.appendChild(document.createTextNode("code")); 
+	} catch(ex){
+		script.text = "code"; 
+	}
+	
+	document.body.appendChild(script);
+	
+	/** 
+	 * Note: 
+	 * -----
+	 * generalized as function. 
+	 * example call: loadScriptString("function sayHi(){console.log('hi');}"); 
+	 *  
+	 * function loadScriptString(code){ 
+	 * 		var script = document.createElement("script"); 
+	 * 		script.type = "text/javascript";  
+	 * 	try { 
+	 * 		script.appendChild(document.createTextNode("code")); 
+	 * 		} catch(ex){
+	 * 			script.text = "code"; 
+	 * 		}
+	 *		document.body.appendChild(script);
+	 * }
+	 */	
+
+	
+	
+  </script>
+  
+  
+  </body> 
+</html> 
+

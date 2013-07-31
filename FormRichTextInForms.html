@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5 Rich text in forms
+  
+		HTML will not be submitted to server unless you extract the HTML manually and 
+		submit it yourself. This is typically done by having a hidding form field 
+		that is updated with the HTML from the iframe or contenteditable element. 
+		Just before the form is submitted, the HTML is extracted and inserted into 
+		the hidden field. 
+	
+		. 
+  --> 
+		
+		
+
+  <div id="content">
+	
+	<iframe id="richie" name="richedit" style="height: 100px; width:100px" src="F:\js\blank.htm">
+	</iframe> 
+	
+  </div> 
+
+  <script type="text/javascript" src="F:\js\EventUtil.js"></script>
+  <script type="text/javascript">
+	
+	//for iframe
+	EventUtil.addHandler(form, "submit", function(event){
+		event = EventUtil.getEvent(event); 
+		var target = EventUtil.getTarget(event); 
+		
+		target.elements["comments"].value = frames["richedit"].document.body.innerHTML; 
+	}); 
+
+		
+	EventUtil.addHandler(form, "submit", function(event){
+		event = EventUtil.getEvent(event); 
+		var target = EventUtil.getTarget(event); 
+		
+		target.elements["comments"].value = document.getElementById("richedit").innerHTML; 
+	}); 
+
+	
+	 
+	
+	
+  </script>
+	 
+  </body> 
+</html> 
+

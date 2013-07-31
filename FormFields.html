@@ -1,0 +1,74 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Forms field
+		
+		Form elements can be accessed in the same ways as any other element on the 
+		page using native DOM methods. All form elements are parts of an elements 
+		collection that is a property of each form. The elements collection is an 
+		ordered list of references to all form fields in the form and includes all 
+		<input>, <textarea>, <button>, <select>, and <fieldset> elements. Each 
+		form field appears in the elements collection in the order in which it 
+		appears in the markup indexed by both position and name. 
+		
+  --> 
+		
+		
+
+  <div id="content">
+	<form id="form1">
+	
+			
+	</form> 
+
+		
+	<form method="post" id="myForm"> 
+		<ul> 
+			<li><input type="radio" name="color" value="red">Red</li> 
+			<li><input type="radio" name="color" value="green">Green</li>
+			<li><input type="radio" name="color" value="blue">Blue</li>
+		</ul> 
+	</form> 
+			
+  <script type="text/javascript">
+	var form = document.getElementById("form1"); 
+	console.log(form); 
+	
+	//get the first field of the form
+	var field1 = form.elements[0]; 
+	
+	//get the field named "textbox1"
+	var field2 = form.elements["textbox1"]; 
+	
+	//get the number of fields
+	var fieldCount = form.elements.length; 
+	
+	/** 
+	 * Note: 
+	 * -----
+	 * if a name is in use by multiple form controls (e.g. radio buttons), 
+	 * then an HTMLCollection is returned containing all of the elements
+	 * with the name
+	 */ 
+	
+	var form = document.getElementById("myForm"); 
+	
+	var colorFields = form.elements["color"]; 
+	console.log(colorFields.length); 
+	
+	var firstColorField = colorFields[0]; 
+	var firstFormField = form.elements[0]; 
+	console.log(firstColorField === firstFormField); 
+	
+	
+  </script>
+	 
+  </body> 
+</html> 
+

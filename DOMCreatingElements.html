@@ -1,0 +1,73 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Creating elements
+		
+		New elements can be created using document.createElement(). createElement() creates a new 
+		element and sets its ownerDocument property. 
+		
+		@param1: 	tag name of the element to create. 
+		
+  -->
+  <div id="myDiv"></div> 
+ 	   
+  <script type="text/javascript">
+		var div = document.createElement("div"); 
+		
+		div.id = "myNewDiv"; 
+		div.className = "box"; 
+		
+		/** 
+		 * Note: 
+		 * -----
+		 * setting the attributes on the new element assigns information only. Since the element
+		 * is not part of the document tree it does not affect the browser's display. The element
+		 * can be added to the tree using appendChild(), insertBefore(), or replaceChild(). 
+		 */ 
+		document.body.appendChild(div); 
+		
+		/** 
+		 * Note: 
+		 * -----
+		 * IE allows an alternate use of createElement() allowing you to specify a full 
+		 * element including attributes
+		 *
+		 * var div - document.createElement("<div id-\"myNewDiv\" class=\"box\"></div>"); 
+		 *
+		 * helpful to work around some issues regarding dynamically created elements in 
+		 * dynamically created <iframe> elements can't have the name attribute set
+		 * dynamically created <input> elements won't get reset via the form's reset method
+		 * dynamically created <button> elements with a type of "reset" won't reset the form
+		 * dynamically created radio buttons with the same name have no relation to one another
+		 */
+		 if (client.browser.ie && client.browser.ie <= 7){
+			
+			//create iframe with name
+			var iframe = document.createElement("<iframe name=\"myframe\"></iframe>"); 
+			
+			//create input element
+			var input = document.createElement("<input type=\"checkbox"\">"); 
+			
+			//create button
+			var button = document.createElement("<button type=\"reset\"></button>"); 
+			
+			//create radio buttons
+			var radio1 = document.createElement("<input type=\"radio\" name=\"choice\"" + value=\"1\">"); 
+			var radio2 = document.createElement("<input type=\"radio\" name=\"choice\"" + value=\"2\">"); 
+		 }
+		 
+		
+		
+		
+		
+  </script>
+	
+  </body> 
+</html> 
+

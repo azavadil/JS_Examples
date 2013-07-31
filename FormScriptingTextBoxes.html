@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Forms field: scripting text boxes
+  
+		there are two ways to represent text boxes in HTML: a single line
+		version using the <input> element and a multiline version using 
+		<textarea>. These two controls are very similar and behave in a 
+		similar way. 
+		
+		By default the <input> element displays a text box even when the 
+		type attribute is omitted. The size attribute can then be used to 
+		specify how wide the text box should be in terms of visible characters. 
+		The value attribute specifies the initial value of the text box, and the 
+		max length attribute specifies the maximum number of characters allowed 
+		in the text box. 
+		
+		<input type="text" size="25" maxlength="50" value="initial value"> 
+		
+		The <textarea> element always renders a multiline text box. To specify 
+		how large the text box should be, you can use the rows attribute, which 
+		specifies the height of the text box in number of characters, and the cols
+		attribute which specifies the width in number of characters. The initial 
+		value of a <textarea> must be enclosed between <textarea></textarea>. 
+		
+		Unlike the <input> element, a <textarea> cannot specify the maximum 
+		number of characters allowed using HTML. 
+		
+		Both types of text boxes store their contents in the value property. 
+		Value property is read/write. 
+		
+
+  --> 
+		
+		
+
+  <div id="content">
+	<form> 
+		<input id="textbox1" type="text" size="25" maxlength="50" value="initial value">
+		<textarea rows="25" cols="5">intial value</textarea> 
+	</form> 
+  </div> 
+
+			
+  <script type="text/javascript">
+	 var textbox = document.forms[0].elements["textbox1"]; 
+	 textbox.value = "some new value"; 
+	
+  </script>
+	 
+  </body> 
+</html> 
+

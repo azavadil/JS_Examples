@@ -1,0 +1,76 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5 Scripting select boxes
+	
+		Select boxes are created using <select> and <option> elements. 
+		HTMLSelectElement provides the following properties and methods. 
+		
+		add(newOption, relOption):	Adds a new <option> before related option  
+		multiple:					Boolean indicating if multiple selections allowed
+		options:					HTMLCollection of <option> elments
+		remove(index): 				removes options in given position
+		selectedIndex: 				zero-base index of selected option, -1 if none
+									selected. For multiple, always first selection 
+		size: 						number of rows visible
+	
+		The type property for a select box is either "select-one" or "select-multiple". 
+		The option that is currently selected determines select box's value property
+		as follows: 
+		
+		No option selected: 		empty string
+		option selected, value		the value of the selected option
+		option selected, no value	text of the option 
+		multiple options			first selected option
+	
+		Each <option> is represented in the DOM by an HTMLOptionElement object. 
+		The HTMLOptionElement type has the following properties
+		
+		index: 						the option's index inside the options collection
+		label: 						the options's label, same as HTML label attribute
+		selected: 					Boolean, indicates if option is selected
+		text:						the option's text
+		value: 						option's value, equivalent to HTML value attribute
+  --> 
+		
+		
+
+  <div id="content">
+	<form method="post"> 
+		<select name="location" id="selLocation"> 
+			<option value="Sunnyvale, CA">Sunnyvale</option>
+			<option value="Los Angeles, CA">Los Angeles</option>
+			<option value="Mountain View, CA">Mountain View</option>
+			<option value="China"></option>
+			<option value="Australia"></option>
+		</select> 
+	</form> 
+  </div> 
+
+  <script type="text/javascript" src="F:\js\EventUtil.js"></script>
+  <script type="text/javascript">
+	
+	//DOM access to <option> properties
+	var selectbox = document.forms[0].elements["location"]; 
+	
+	var text = selectbox.options[0].firstChild.nodeValue; 
+	var value = selectbox.options[0].getAttribute("value");
+	
+	//easier access with properties
+	var text2 = selectbox.options[0].text;
+	var val2 = selectbox.options[0].value; 
+	
+	
+	
+	
+  </script>
+	 
+  </body> 
+</html> 
+

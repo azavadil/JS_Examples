@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Dom extensions
+		
+		querySelectorAll() 
+		@param1: 		CSS query
+		return val: 	all matching nodes or null. The return value is a static instance of 
+						nodeList
+						
+		The return value is a NodeList with all the expected properties and methods but its 
+		underlying implementation acts as a snapshot of elements rather than a dynamic 
+		query. 
+
+		Available on Document, DocumentFragment, and Element types. 
+		
+  -->
+
+  <div id="myDiv"></div> 
+  
+  <script type="text/javascript">
+	
+	//get all<em> elements in a <div> (similar to getElementsByTagName("em"))
+	var ems = document.getElementById("myDiv").querySelectorAll("em"); 
+	
+	//get all elements with class of "selected" 
+	var selecteds = document.querySelectorAll(".selected"); 
+	
+	//get all <strong> elements inside of <p> elements
+	var strongs = document.querySelectorAll("p strong"); 
+	
+	/** 
+	 * Note: 
+	 * -----
+	 * The resulting NodeList may be iterated over using either item() or bracket notation
+	 */ 
+	var i, len, strong; 
+	for (i=0, len=strongs.length; i < len; i++){
+		strong = strongs[i]; //or strongs.item(i)
+		strong.className = "important"; 
+	}
+	
+	
+  </script>
+  
+  
+  </body> 
+</html> 
+

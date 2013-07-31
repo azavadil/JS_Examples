@@ -1,0 +1,63 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5: changes to the HTMLDocument
+		
+		Markup insertion
+		
+		insertAdjacentHTML
+		
+		@param1: 		position at which to insert. Must be one of the following values. 
+						"beforebegin": insert just before the element at previous sibling
+						"afterbegin":  insert just inside of the element as a new child or 
+									   series of children before the first child
+						"beforeend":   insert just inside of the element as a new child or 
+									   series of children after the last child
+						"afterend":    insert just after the element as next sibling
+						
+		@param2:		the HTML text to insert
+		
+		
+	
+		
+  --> 
+		
+		
+
+  <div id="content">
+	<p>This is a <strong>paragraph</strong> with a list following it.</p> 
+	<ul> 
+		<li id="insertHere">Item 1</li> 
+		<li>Item 2</li> 
+		<li>Item 3</li> 
+	</ul> 
+  </div> 
+		
+
+  <script type="text/javascript">
+  
+	var element = document.getElementById("insertHere"); 
+	//insert as previous sibling
+	element.insertAdjacentHTML("beforebegin", "<p>Hello world!</p>"); 
+	
+	//insert as first child
+	element.insertAdjacentHTML("afterbegin", "<p>Hello world!</p>"); 
+	
+	//insert as last child
+	element.insertAdjacentHTML("beforeend", "<p>Hello world!</p>"); 
+	
+	//insert as next sibling
+	element.insertAdjacentHTML("afterend", "<p>Hello world!</p>"); 
+	
+	
+  </script>
+	 
+  </body> 
+</html> 
+

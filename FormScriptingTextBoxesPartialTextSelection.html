@@ -1,0 +1,118 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Forms field: scripting text boxes, partial text selection
+  
+		HTML5 also specifies an addition to aid in partially selecting 
+		text in a text boxx. The setSelectionRange() method takes two 
+		arguments
+		
+		setSelectionRange(): 
+		@param1: 			the index of the first character to select
+		@param2: 			the index at which to stop the selection
+		
+		To see the selection you must set the focus to the text box
+		either immediately before or after a call to setSelectionRange(). 
+		
+		IE<=8 allow partial text selection through the use of ranges. 
+		To select part of the text in a text box you must first create 
+		a range and place it in the correct position by using the
+		createTextRange() method IE provides on text boxes and using 
+		the moveStart() and moveEnd() range methods to move the range
+		into position. Before calling these method you need to collapse
+		the range to the start of the text box using collapse. After that
+		moveStart() moves both the starting and the end points of the range
+		to the same position. You can then pass in the total number of 
+		characters to select. The last step is to use the range's select() 
+		method to select the text
+  --> 
+		
+		
+
+  <div id="content">
+	<form> 
+		<input id="textbox1" type="text" size="25" maxlength="50" value="initial value">
+	
+		<textarea rows="25" cols="5">intial value</textarea> 
+	</form> 
+  </div> 
+
+			
+  <script type="text/javascript">
+	 var tbox = document.forms[0].elements["textbox1"]; 
+	 
+	 tbox.value = "hello world"; 
+
+	 //select all text
+	 tbox.setSelectionRange(0,textbox.value.length); 
+	 
+	 //select first three characters
+	 textbox.setSelectionRange(0,3); 
+	 
+	 //select characters 4 through 6
+	 textbox.setSelectionRange(4,7); 
+	 
+	 //IE examples
+	 
+	 var range = textbox.createTextRange(); 
+	 
+	 //select all text
+	 range.collapse(true); 
+	 range.moveStart("character", 0); 
+	 range.moveEnd("character", textbox.value.length); 
+	 range.select(); 
+	 
+	 //select all text
+	 range.collapse(true); 
+	 range.moveStart("character", 0); 
+	 range.moveEnd("character", textbox.value.length); 
+	 range.select(); 
+	 
+	 //select first 3 characters
+	 range.collapse(true); 
+	 range.moveStart("character", 0); 
+	 range.moveEnd("character", 3); 
+	 range.select(); 
+	 
+	//select characters 4 through 6
+	 range.collapse(true); 
+	 range.moveStart("character", 4); 
+	 range.moveEnd("character", 3); 
+	 range.select(); 
+	 
+	 /**
+	  * Note: 
+	  * -----
+	  * generalize into function
+	  *
+	  * selectText() accepts three arguments
+	  * @param1: 		the text box to act on
+	  * @param2: 		the index at which to begin the selection
+	  * @param3: 		the index before which to end the selection
+	  */ 
+	  
+	 function selectText(textbox, startIndex, stopIndex){
+		if(textbox.setSelectionRange){
+			textbox.setSelectionRange(startIndex, stopIndex);
+		} else if (textbox.createTextRange){
+			var range = textbox.createTextRange(); 
+			range collapse(true); 
+			range.moveStart("character", startIndex); 
+			range.moveEnd("character", stopIndex - startIndex); 
+			range.select(); 
+		}
+		textbox.focus();
+	}
+	 
+	
+  </script>
+	 
+  </body> 
+</html> 
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5: changes to the HTMLDocument
+		
+		contains() method
+		@param1: 		the suspected descendent node
+		
+		It's often necessary to determine if a given node is a descendent of another. IE 
+		first introduced the contains() method as a way of providing this information without
+		necessitating a walk up the DOM document tree. The contains() method is called on 
+		an ancestor node from which the search should begin and accepts a single argument, 
+		which is the suspected descendent node. If the nodes exists as a descendent of the root
+		node the method returns true, otherwise it returns false. 
+		
+		There's another approach using DOM Level 3 compareDocumentPosition(). compareDocumentPosition()
+		determines the relationship between two nodes and returns a bitmask indicating the relationship. 
+		
+		mask:
+		----
+		1			Disconnected (the passed in node is not in the document)
+		2			Precedes (the passed in node appears in the DOM tree prior to the reference node)
+		4			Follows (the passed in node appears in the DOM tree after the reference node)
+		8			Contains (the passed in node is an ancestor of the reference node)
+		16			is contained by ((the passed in node is a descendent of the reference node)
+		
+		to mimic the contains() mehtod, use the 16 bit mask. The result of compareDocumentPosition() can 
+		be bitwise ANDed to determine if the reference node contains the given node
+		
+		
+		
+			
+  --> 
+		
+		
+
+  <div id="content">
+	<p>This is a <strong>paragraph</strong> with a list following it.</p> 
+	<ul> 
+		<li id="insertHere">Item 1</li> 
+		<li>Item 2</li> 
+		<li>Item 3</li> 
+	</ul> 
+  </div> 
+		
+
+  <script type="text/javascript">
+  
+	//tests to see if <body> element is a descendent of the <html> element
+	console.log(document.documentElement.contains(document.body)); 
+	
+	//alternate implementation
+	var result = document.documentElement.compareDocumentPosition(document.body); 
+	console.log(!!(result & 16)); 
+	
+	//generic contains function
+	function contains(refNode, otherNode){
+		if(typeof refNode.contains == "function" && (!client.engine.webkit || client.engine.webkit >= 55)){ 
+			return refNode.contains(otherNode); 
+		} else if (typeof refNode.compareDocumentPosition == "function"){
+			return !!(refNode.compareToDocumentPosition(otherNode) & 16);
+		} else { 
+			var node = otherNode.parentNode; 
+			do { 
+				if (node === refNode){
+					return true; 
+				} else { 
+					node = node.parentNode; 
+				} while (node!=null)
+				return false; 
+			}
+		}
+	}
+	
+  </script>
+	 
+  </body> 
+</html> 
+

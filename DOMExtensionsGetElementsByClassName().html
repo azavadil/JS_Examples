@@ -1,0 +1,47 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5
+  
+		getElementsByClassName()
+		@param1: 		a string containing one or more class names
+		return val:		NodeList containing all elements that have all of 			
+						the specified classes applied. 
+		
+		Available on the document object and HTML elements
+		
+		When this method is called it will return only elements in the subtree
+		of the root from which it was called. Calling getElementsByClassName() 
+		on document always returns all elements with matching class names, 
+		whereas calling it on an element will return only descendant elements. 
+		
+		This mehtod is useful for attaching events to classes of elements rather
+		than using IDs or tage names. 
+  -->
+
+  <div id="myDiv"></div> 
+  
+  <script type="text/javascript">
+	
+	/**
+	 * Note
+	 * ----
+	 * get all elements with a class containing "username" and "current", it 
+	 * doesn't matter if one is declared before the other
+	 */ 
+	 var allCurrentUsernames = document.getElementsByClassName("username current"); 
+	 
+		
+		
+  </script>
+  
+  
+  </body> 
+</html> 
+

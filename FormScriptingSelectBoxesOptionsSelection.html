@@ -1,0 +1,90 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	HTML5 Scripting select boxes: options selection
+		
+		For a select box that allows only one option, the easiest way to access
+		the selected option is by using the select box's selectedIndex property. 
+			
+		When used in a select box that allows multiple selections the selectedIndex
+		property acts as if only one selection was allowed. Setting selectedIndex 
+		removes all selections and selects just the single option specified, whereas
+		getting selectedIndex returns only the index of the first option that was selected. 
+		
+		Options can also be selected by getting a reference to the option and 
+		setting its selected property to true. 
+
+		Unlike selectedIndex setting the options selected property does not remove 
+		other selections when used in a multiselect select box, allowing you to 
+		dynamically select multiple options. 
+		
+		The selected property is helpful in determining which options in a select box
+		are selected. 
+	
+  --> 
+		
+		
+
+  <div id="content">
+	<form method="post"> 
+		<select name="location" id="selLocation"> 
+			<option value="Sunnyvale, CA">Sunnyvale</option>
+			<option value="Los Angeles, CA">Los Angeles</option>
+			<option value="Mountain View, CA">Mountain View</option>
+			<option value="China"></option>
+			<option value="Australia"></option>
+	</form> 
+  </div> 
+
+  <script type="text/javascript" src="F:\js\EventUtil.js"></script>
+  <script type="text/javascript">
+	
+	
+	var selectbox = document.getElementById("selLocation"); 
+	
+	//set the first option to the be selected
+	selectbox.options[0].selected = true; 	
+	
+	//get selected option
+	var selectedOption = selectbox.options[selectbox.selectedIndex]; 
+	
+	var selectedIndex = selectbox.selectedIndex; 
+	var selectedOption = selectbox.options[selectedIndex]; 
+	console.log("selected index: " + selectedIndex + "\nSelectedText: " + selectedOption.text); 
+	
+	//function to get selected options
+	function getSelectedOptions(selectbox){
+		var result = new Array(); 
+		var option = null; 
+		
+		for (var i=0, len=selectbox.options.length; i < len; i++){
+			option = selectbox.options[i]; 
+			if(option.selected){
+				result.push(option); 
+			}
+		}
+		return result; 
+	}
+	
+	var selectedOptions = getSelectedOptions(selectbox); 
+	var message = ""; 
+	
+	for (var i=0, len=selectedOptions.length; i < len; i++){
+		message += "Selected index: " + selectedOptions[i].index + 
+					"\nSelectedText: " + selectedOptions[i].text; 
+	}
+	console.log(message); 
+	
+	
+	
+  </script>
+	 
+  </body> 
+</html> 
+

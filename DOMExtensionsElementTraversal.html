@@ -1,0 +1,56 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Element traversal
+		
+		IE<9 did not return text nodes for white space between elements while all other browsers did. 
+		This led to differences in behavior when using properties such as childNodes and firstChild. 
+		In an effort to equalize the differences a new group of properties was defined in 
+		Element Traversal 
+		
+		childElementCount: 		returns the number of child elements (excludes text nodes and comments)
+		firstElementChild: 		points to the first child that is an element. Element-only version of 	
+								first-child
+		lastElementChild: 		points to the last child that is an element. Element-only version of 
+								previousSibling
+		nextElementSibling:		points to the next sibling that is an element. Element-only version of 
+								nextSibling
+								
+		Example of traditional traversal 
+		--------------------------------
+		var i, len, child = element.firstChild; 
+		
+		while(child != element.lastChild){
+			if(child.nodeType == 1){  //check for an element
+				processChild(child); 
+			}
+			child = child.nextSibling; 
+		}
+		
+	-->
+
+  <div id="myDiv"></div> 
+  
+  <script type="text/javascript">
+	
+		//simplified code
+		var i, len, child=element.firstElementChild; 
+		
+		while(child != element.lastElementChild){
+			processChild(child); 
+			child = child.nextElementSibling; 
+		}
+	
+		
+  </script>
+  
+  
+  </body> 
+</html> 
+

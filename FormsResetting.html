@@ -1,0 +1,82 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title></title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Forms
+		
+		Forms are reset when the user clicks a reset button. Reset buttons are 
+		created using either the <input> or the <button> element with a type 
+		attribute of "reset". 
+		
+  --> 
+		
+		
+
+  <div id="content">
+	<form id="form1">
+		<!-- 
+			Either of these buttons will reset a form. When a form is reset, all
+			of the form fields are set back to the values they had when the page
+			was first rendered. If a field was originally blank, it becomes blank
+			again, whereas a field with a default value is set back to the default 
+			value
+			
+			When a form is reset by the user clicking a reset button, the reset
+			event fires. This event gives you the opportunity to cancel the reset
+			if necessary. 
+		--> 
+	
+		<!-- generic reset button --> 
+		<input type="reset" value="Reset Form"> 
+	
+		<!-- custom reset button --> 
+		<button type="reset">Reset form</button> 
+	
+		<!-- image button --> 
+		<input type="image" scr="keepon.jpg"> 
+	
+	</form> 
+
+	<p>This is a <strong>paragraph</strong> with a list following it.</p> 
+	<ul> 
+		<li id="insertHere">Item 1</li> 
+		<li>Item 2</li> 
+		<li>Item 3</li> 
+	</ul> 
+  </div> 
+		
+
+  <script type="text/javascript">
+	var form = document.getElementById("form1"); 
+
+	
+	EventUtil.addHandler(form, "reset", function(event){
+		
+		//get event object
+		event = EventUtil.getEvent(event); 
+		
+		//do validation
+		
+		//prevent form reset
+		EventUtil.preventDefault(event); 
+	}); 
+	
+	/** 
+	 * Note: 
+	 * ----- 
+	 * resetting a form can be accomplished via JavaScript using the reset() 
+	 * method. Unlike submit(), reset() fires the reset event. 
+	 * 
+	 */ 
+	 form.reset(); 
+	
+  </script>
+	 
+  </body> 
+</html> 
+

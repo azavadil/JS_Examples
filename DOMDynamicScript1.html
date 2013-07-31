@@ -1,0 +1,46 @@
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>document.write() Example</title> 
+	
+  </head> 
+  <body> 
+
+  
+  <!-- 	Dynamic scripts
+	
+		Dynamic scripts are those that don't exist when the page is loaded but are included later by using
+		the DOM. As with the HTML element, there are two ways to do this. Pulling in an external file or 
+		inserting text directly
+		
+  -->
+
+  <div id="myDiv"></div> 
+  
+  <script type="text/javascript">
+	
+	var script = document.createElement("script"); 
+	script.type = "text/javascript"; 
+	script.src = "example.js"; 
+	document.body.appendChild(script);
+		 
+	/**
+	 * Note: 
+	 * -----
+	 * we can abstract this as a function. 
+	 *
+	 * call: loadScript("example.js"); 
+	 */ 
+	function loadScript(url){
+		var script = document.createElement("script"); 
+		script.type = "text/javascript"; 
+		script.src = url; 
+		document.body.appendChild(script); 
+	}
+	
+  </script>
+  
+  
+  </body> 
+</html> 
+
